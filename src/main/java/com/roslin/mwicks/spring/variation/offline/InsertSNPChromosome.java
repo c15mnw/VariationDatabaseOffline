@@ -21,14 +21,14 @@ import com.roslin.mwicks.spring.variation.config.MyOfflineApplicationContext;
 import com.roslin.mwicks.spring.variation.routines.ConvertFiletoSNPChromosomeList;
 
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome1;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome3;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome4;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome5;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome6;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome7;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome8;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome9;
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome01;
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome03;
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome04;
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome05;
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome06;
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome07;
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome08;
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome09;
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome10;
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome11;
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome12;
@@ -54,7 +54,14 @@ import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeZ;
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeLGE22C19W28_E50C23;
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeLGE64;
 
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome1;
+import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome01;
+import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome03;
+import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome04;
+import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome05;
+import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome06;
+import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome07;
+import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome08;
+import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome09;
 import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome10;
 import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome11;
 import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome12;
@@ -63,13 +70,6 @@ import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.Service
 import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome15;
 import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome16;
 import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome17;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome3;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome4;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome5;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome6;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome7;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome8;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome9;
 import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome18;
 import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome19;
 import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome20;
@@ -192,14 +192,14 @@ public class InsertSNPChromosome {
 
                             List<SNPChromosome> snpchromosomeList = ConvertFiletoSNPChromosomeList.run(file);
                             
-                            List<SNPChromosome1> snpchromosome1List = new ArrayList<SNPChromosome1>();
-                            List<SNPChromosome3> snpchromosome3List = new ArrayList<SNPChromosome3>();
-                            List<SNPChromosome4> snpchromosome4List = new ArrayList<SNPChromosome4>();
-                            List<SNPChromosome5> snpchromosome5List = new ArrayList<SNPChromosome5>();
-                            List<SNPChromosome6> snpchromosome6List = new ArrayList<SNPChromosome6>();
-                            List<SNPChromosome7> snpchromosome7List = new ArrayList<SNPChromosome7>();
-                            List<SNPChromosome8> snpchromosome8List = new ArrayList<SNPChromosome8>();
-                            List<SNPChromosome9> snpchromosome9List = new ArrayList<SNPChromosome9>();
+                            List<SNPChromosome01> snpchromosome1List = new ArrayList<SNPChromosome01>();
+                            List<SNPChromosome03> snpchromosome3List = new ArrayList<SNPChromosome03>();
+                            List<SNPChromosome04> snpchromosome4List = new ArrayList<SNPChromosome04>();
+                            List<SNPChromosome05> snpchromosome5List = new ArrayList<SNPChromosome05>();
+                            List<SNPChromosome06> snpchromosome6List = new ArrayList<SNPChromosome06>();
+                            List<SNPChromosome07> snpchromosome7List = new ArrayList<SNPChromosome07>();
+                            List<SNPChromosome08> snpchromosome8List = new ArrayList<SNPChromosome08>();
+                            List<SNPChromosome09> snpchromosome9List = new ArrayList<SNPChromosome09>();
                             List<SNPChromosome10> snpchromosome10List = new ArrayList<SNPChromosome10>();
                             List<SNPChromosome11> snpchromosome11List = new ArrayList<SNPChromosome11>();
                             List<SNPChromosome12> snpchromosome12List = new ArrayList<SNPChromosome12>();
@@ -225,14 +225,14 @@ public class InsertSNPChromosome {
                             List<SNPChromosomeLGE22C19W28_E50C23> snpchromosomeLGE22C19W28_E50C23List = new ArrayList<SNPChromosomeLGE22C19W28_E50C23>();
                             List<SNPChromosomeLGE64> snpchromosomeLGE64List = new ArrayList<SNPChromosomeLGE64>();
 
-                            ServiceSNPChromosome1 serviceSNPChromosome1 = (ServiceSNPChromosome1) applicationContext.getBean(ServiceSNPChromosome1.class);
-                            ServiceSNPChromosome3 serviceSNPChromosome3 = (ServiceSNPChromosome3) applicationContext.getBean(ServiceSNPChromosome3.class);
-                            ServiceSNPChromosome4 serviceSNPChromosome4 = (ServiceSNPChromosome4) applicationContext.getBean(ServiceSNPChromosome4.class);
-                            ServiceSNPChromosome5 serviceSNPChromosome5 = (ServiceSNPChromosome5) applicationContext.getBean(ServiceSNPChromosome5.class);
-                            ServiceSNPChromosome6 serviceSNPChromosome6 = (ServiceSNPChromosome6) applicationContext.getBean(ServiceSNPChromosome6.class);
-                            ServiceSNPChromosome7 serviceSNPChromosome7 = (ServiceSNPChromosome7) applicationContext.getBean(ServiceSNPChromosome7.class);
-                            ServiceSNPChromosome8 serviceSNPChromosome8 = (ServiceSNPChromosome8) applicationContext.getBean(ServiceSNPChromosome8.class);
-                            ServiceSNPChromosome9 serviceSNPChromosome9 = (ServiceSNPChromosome9) applicationContext.getBean(ServiceSNPChromosome9.class);
+                            ServiceSNPChromosome01 serviceSNPChromosome1 = (ServiceSNPChromosome01) applicationContext.getBean(ServiceSNPChromosome01.class);
+                            ServiceSNPChromosome03 serviceSNPChromosome3 = (ServiceSNPChromosome03) applicationContext.getBean(ServiceSNPChromosome03.class);
+                            ServiceSNPChromosome04 serviceSNPChromosome4 = (ServiceSNPChromosome04) applicationContext.getBean(ServiceSNPChromosome04.class);
+                            ServiceSNPChromosome05 serviceSNPChromosome5 = (ServiceSNPChromosome05) applicationContext.getBean(ServiceSNPChromosome05.class);
+                            ServiceSNPChromosome06 serviceSNPChromosome6 = (ServiceSNPChromosome06) applicationContext.getBean(ServiceSNPChromosome06.class);
+                            ServiceSNPChromosome07 serviceSNPChromosome7 = (ServiceSNPChromosome07) applicationContext.getBean(ServiceSNPChromosome07.class);
+                            ServiceSNPChromosome08 serviceSNPChromosome8 = (ServiceSNPChromosome08) applicationContext.getBean(ServiceSNPChromosome08.class);
+                            ServiceSNPChromosome09 serviceSNPChromosome9 = (ServiceSNPChromosome09) applicationContext.getBean(ServiceSNPChromosome09.class);
                             ServiceSNPChromosome10 serviceSNPChromosome10 = (ServiceSNPChromosome10) applicationContext.getBean(ServiceSNPChromosome10.class);
                             ServiceSNPChromosome11 serviceSNPChromosome11 = (ServiceSNPChromosome11) applicationContext.getBean(ServiceSNPChromosome11.class);
                             ServiceSNPChromosome12 serviceSNPChromosome12 = (ServiceSNPChromosome12) applicationContext.getBean(ServiceSNPChromosome12.class);
@@ -269,35 +269,35 @@ public class InsertSNPChromosome {
                 	     		SNPChromosome snpchromosome = iteratorsnpchromosomeList.next();
                 	     		
                 	     		if ( snpchromosome.isSearchChromosome1() ){
-                	     			SNPChromosome1 snpchromosome1 = snpchromosome.convertTo1();
+                	     			SNPChromosome01 snpchromosome1 = snpchromosome.convertTo1();
                 	     			snpchromosome1List.add(snpchromosome1);
                 	     		}
                 	     		if ( snpchromosome.isSearchChromosome3() ){
-                	     			SNPChromosome3 snpchromosome3 = snpchromosome.convertTo3();
+                	     			SNPChromosome03 snpchromosome3 = snpchromosome.convertTo3();
                 	     			snpchromosome3List.add(snpchromosome3);
                 	     		}
                 	     		if ( snpchromosome.isSearchChromosome4() ){
-                	     			SNPChromosome4 snpchromosome4 = snpchromosome.convertTo4();
+                	     			SNPChromosome04 snpchromosome4 = snpchromosome.convertTo4();
                 	     			snpchromosome4List.add(snpchromosome4);
                 	     		}
                 	     		if ( snpchromosome.isSearchChromosome5() ){
-                	     			SNPChromosome5 snpchromosome5 = snpchromosome.convertTo5();
+                	     			SNPChromosome05 snpchromosome5 = snpchromosome.convertTo5();
                 	     			snpchromosome5List.add(snpchromosome5);
                 	     		}
                 	     		if ( snpchromosome.isSearchChromosome6() ){
-                	     			SNPChromosome6 snpchromosome6 = snpchromosome.convertTo6();
+                	     			SNPChromosome06 snpchromosome6 = snpchromosome.convertTo6();
                 	     			snpchromosome6List.add(snpchromosome6);
                 	     		}
                 	     		if ( snpchromosome.isSearchChromosome7() ){
-                	     			SNPChromosome7 snpchromosome7 = snpchromosome.convertTo7();
+                	     			SNPChromosome07 snpchromosome7 = snpchromosome.convertTo7();
                 	     			snpchromosome7List.add(snpchromosome7);
                 	     		}
                 	     		if ( snpchromosome.isSearchChromosome8() ){
-                	     			SNPChromosome8 snpchromosome8 = snpchromosome.convertTo8();
+                	     			SNPChromosome08 snpchromosome8 = snpchromosome.convertTo8();
                 	     			snpchromosome8List.add(snpchromosome8);
                 	     		}
                 	     		if ( snpchromosome.isSearchChromosome9() ){
-                	     			SNPChromosome9 snpchromosome9 = snpchromosome.convertTo9();
+                	     			SNPChromosome09 snpchromosome9 = snpchromosome.convertTo9();
                 	     			snpchromosome9List.add(snpchromosome9);
                 	     		}
                 	     		if ( snpchromosome.isSearchChromosome10() ){

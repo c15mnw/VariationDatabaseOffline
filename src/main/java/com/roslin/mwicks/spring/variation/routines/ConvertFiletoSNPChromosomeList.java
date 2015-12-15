@@ -59,15 +59,6 @@ public final class ConvertFiletoSNPChromosomeList {
 	        		
 	        		String column = iteratorColumn.next();
 	        		
-	        	    dtosnpchromosome.setStrain7AlleleRatio("0");
-	        	    dtosnpchromosome.setStrainPAlleleRatio("0");
-	        	    dtosnpchromosome.setStrainWAlleleRatio("0");
-	        	    dtosnpchromosome.setStrainNAlleleRatio("0");
-	        	    dtosnpchromosome.setStrain15IAlleleRatio("0");
-	        	    dtosnpchromosome.setStrainZeroAlleleRatio("0");
-	        	    dtosnpchromosome.setStrain6AlleleRatio("0");
-	        	    dtosnpchromosome.setStrainCAlleleRatio("0");
-
 	        		if ( i == 1 ) {
 		        	    dtosnpchromosome.setSnpId(column.trim());
 	        		}
@@ -235,6 +226,14 @@ public final class ConvertFiletoSNPChromosomeList {
 	        		i++;
 	         	}
 		     	
+	         	dtosnpchromosome.setAminoAcidSubs("");
+	         	dtosnpchromosome.setPredictionCategory("");
+	         	dtosnpchromosome.setScoreSift("0");
+	         	dtosnpchromosome.setScoreConservation("0");
+	         	dtosnpchromosome.setProteinAlignNumber("0");
+	         	dtosnpchromosome.setTotalAlignSequenceNumber("0");
+	         	dtosnpchromosome.setScoreProvean("0");
+
 	         	if ( dtosnpchromosome.isThisAValidSNPChromosome() ) {
 	         		
 		         	outputsnpchromosomeList.add(dtosnpchromosome.convertToSNPChromosome());
