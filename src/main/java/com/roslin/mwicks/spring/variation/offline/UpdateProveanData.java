@@ -245,7 +245,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome01> snpchromosome1List = new ArrayList<SNPChromosome01>();
                 	     			
-                	     			snpchromosome1List = serviceSNPChromosome01.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome1List = serviceSNPChromosome01.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome01> iteratorSNPChromosome01 = snpchromosome1List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome01.hasNext()) {
@@ -266,7 +266,7 @@ public class UpdateProveanData {
 
                 	                List<SNPChromosome03> snpchromosome3List = new ArrayList<SNPChromosome03>();
 
-                	     			snpchromosome3List = serviceSNPChromosome03.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome3List = serviceSNPChromosome03.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome03> iteratorSNPChromosome03 = snpchromosome3List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome03.hasNext()) {
@@ -287,7 +287,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome04> snpchromosome4List = new ArrayList<SNPChromosome04>();
 
-                	                snpchromosome4List = serviceSNPChromosome04.findBySnpId(proveandata.getChromosomeId());
+                	                snpchromosome4List = serviceSNPChromosome04.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome04> iteratorSNPChromosome04 = snpchromosome4List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome04.hasNext()) {
@@ -308,7 +308,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome05> snpchromosome5List = new ArrayList<SNPChromosome05>();
 
-                	                snpchromosome5List = serviceSNPChromosome05.findBySnpId(proveandata.getChromosomeId());
+                	                snpchromosome5List = serviceSNPChromosome05.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome05> iteratorSNPChromosome05 = snpchromosome5List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome05.hasNext()) {
@@ -329,7 +329,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome06> snpchromosome6List = new ArrayList<SNPChromosome06>();
 
-                	                snpchromosome6List = serviceSNPChromosome06.findBySnpId(proveandata.getChromosomeId());
+                	                snpchromosome6List = serviceSNPChromosome06.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome06> iteratorSNPChromosome06 = snpchromosome6List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome06.hasNext()) {
@@ -350,7 +350,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome07> snpchromosome7List = new ArrayList<SNPChromosome07>();
 
-                	                snpchromosome7List = serviceSNPChromosome07.findBySnpId(proveandata.getChromosomeId());
+                	                snpchromosome7List = serviceSNPChromosome07.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome07> iteratorSNPChromosome07 = snpchromosome7List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome07.hasNext()) {
@@ -371,7 +371,7 @@ public class UpdateProveanData {
 
                 	                List<SNPChromosome08> snpchromosome8List = new ArrayList<SNPChromosome08>();
 
-                	     			snpchromosome8List = serviceSNPChromosome08.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome8List = serviceSNPChromosome08.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome08> iteratorSNPChromosome08 = snpchromosome8List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome08.hasNext()) {
@@ -392,7 +392,7 @@ public class UpdateProveanData {
 
                 	                List<SNPChromosome09> snpchromosome9List = new ArrayList<SNPChromosome09>();
 
-                	     			snpchromosome9List = serviceSNPChromosome09.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome9List = serviceSNPChromosome09.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome09> iteratorSNPChromosome09 = snpchromosome9List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome09.hasNext()) {
@@ -413,7 +413,7 @@ public class UpdateProveanData {
 
                 	                List<SNPChromosome10> snpchromosome10List = new ArrayList<SNPChromosome10>();
 
-                	     			snpchromosome10List = serviceSNPChromosome10.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome10List = serviceSNPChromosome10.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome10> iteratorSNPChromosome10 = snpchromosome10List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome10.hasNext()) {
@@ -434,7 +434,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome11> snpchromosome11List = new ArrayList<SNPChromosome11>();
 
-                	     			snpchromosome11List = serviceSNPChromosome11.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome11List = serviceSNPChromosome11.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome11> iteratorSNPChromosome11 = snpchromosome11List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome11.hasNext()) {
@@ -455,7 +455,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome12> snpchromosome12List = new ArrayList<SNPChromosome12>();
 
-                	                snpchromosome12List = serviceSNPChromosome12.findBySnpId(proveandata.getChromosomeId());
+                	                snpchromosome12List = serviceSNPChromosome12.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome12> iteratorSNPChromosome12 = snpchromosome12List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome12.hasNext()) {
@@ -476,7 +476,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome13> snpchromosome13List = new ArrayList<SNPChromosome13>();
 
-                	                snpchromosome13List = serviceSNPChromosome13.findBySnpId(proveandata.getChromosomeId());
+                	                snpchromosome13List = serviceSNPChromosome13.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome13> iteratorSNPChromosome13 = snpchromosome13List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome13.hasNext()) {
@@ -497,7 +497,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome14> snpchromosome14List = new ArrayList<SNPChromosome14>();
 
-                	                snpchromosome14List = serviceSNPChromosome14.findBySnpId(proveandata.getChromosomeId());
+                	                snpchromosome14List = serviceSNPChromosome14.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome14> iteratorSNPChromosome14 = snpchromosome14List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome14.hasNext()) {
@@ -518,7 +518,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome15> snpchromosome15List = new ArrayList<SNPChromosome15>();
 
-                	                snpchromosome15List = serviceSNPChromosome15.findBySnpId(proveandata.getChromosomeId());
+                	                snpchromosome15List = serviceSNPChromosome15.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome15> iteratorSNPChromosome15 = snpchromosome15List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome15.hasNext()) {
@@ -539,7 +539,7 @@ public class UpdateProveanData {
 
                 	                List<SNPChromosome16> snpchromosome16List = new ArrayList<SNPChromosome16>();
 
-                	     			snpchromosome16List = serviceSNPChromosome16.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome16List = serviceSNPChromosome16.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome16> iteratorSNPChromosome16 = snpchromosome16List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome16.hasNext()) {
@@ -560,7 +560,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome17> snpchromosome17List = new ArrayList<SNPChromosome17>();
 
-                	     			snpchromosome17List = serviceSNPChromosome17.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome17List = serviceSNPChromosome17.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome17> iteratorSNPChromosome17 = snpchromosome17List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome17.hasNext()) {
@@ -581,7 +581,7 @@ public class UpdateProveanData {
 
                 	                List<SNPChromosome18> snpchromosome18List = new ArrayList<SNPChromosome18>();
 
-                	     			snpchromosome18List = serviceSNPChromosome18.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome18List = serviceSNPChromosome18.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome18> iteratorSNPChromosome18 = snpchromosome18List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome18.hasNext()) {
@@ -602,7 +602,7 @@ public class UpdateProveanData {
 
                 	                List<SNPChromosome19> snpchromosome19List = new ArrayList<SNPChromosome19>();
 
-                	     			snpchromosome19List = serviceSNPChromosome19.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome19List = serviceSNPChromosome19.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome19> iteratorSNPChromosome19 = snpchromosome19List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome19.hasNext()) {
@@ -623,7 +623,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome20> snpchromosome20List = new ArrayList<SNPChromosome20>();
 
-                	     			snpchromosome20List = serviceSNPChromosome20.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome20List = serviceSNPChromosome20.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome20> iteratorSNPChromosome20 = snpchromosome20List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome20.hasNext()) {
@@ -644,7 +644,7 @@ public class UpdateProveanData {
 
                 	                List<SNPChromosome21> snpchromosome21List = new ArrayList<SNPChromosome21>();
 
-                	     			snpchromosome21List = serviceSNPChromosome21.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome21List = serviceSNPChromosome21.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome21> iteratorSNPChromosome21 = snpchromosome21List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome21.hasNext()) {
@@ -665,7 +665,7 @@ public class UpdateProveanData {
 
                 	                List<SNPChromosome22> snpchromosome22List = new ArrayList<SNPChromosome22>();
 
-                	     			snpchromosome22List = serviceSNPChromosome22.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome22List = serviceSNPChromosome22.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome22> iteratorSNPChromosome22 = snpchromosome22List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome22.hasNext()) {
@@ -686,7 +686,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome23> snpchromosome23List = new ArrayList<SNPChromosome23>();
                 	                
-                	                snpchromosome23List = serviceSNPChromosome23.findBySnpId(proveandata.getChromosomeId());
+                	                snpchromosome23List = serviceSNPChromosome23.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome23> iteratorSNPChromosome23 = snpchromosome23List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome23.hasNext()) {
@@ -707,7 +707,7 @@ public class UpdateProveanData {
                 	     			
                 	     			List<SNPChromosome24> snpchromosome24List = new ArrayList<SNPChromosome24>();
 
-                	                snpchromosome24List = serviceSNPChromosome24.findBySnpId(proveandata.getChromosomeId());
+                	                snpchromosome24List = serviceSNPChromosome24.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome24> iteratorSNPChromosome24 = snpchromosome24List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome24.hasNext()) {
@@ -728,7 +728,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome25> snpchromosome25List = new ArrayList<SNPChromosome25>();
 
-                	     			snpchromosome25List = serviceSNPChromosome25.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome25List = serviceSNPChromosome25.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome25> iteratorSNPChromosome25 = snpchromosome25List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome25.hasNext()) {
@@ -749,7 +749,7 @@ public class UpdateProveanData {
 
                 	                List<SNPChromosome26> snpchromosome26List = new ArrayList<SNPChromosome26>();
 
-                	     			snpchromosome26List = serviceSNPChromosome26.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome26List = serviceSNPChromosome26.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome26> iteratorSNPChromosome26 = snpchromosome26List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome26.hasNext()) {
@@ -770,7 +770,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome27> snpchromosome27List = new ArrayList<SNPChromosome27>();
 
-                	     			snpchromosome27List = serviceSNPChromosome27.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome27List = serviceSNPChromosome27.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome27> iteratorSNPChromosome27 = snpchromosome27List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome27.hasNext()) {
@@ -791,7 +791,7 @@ public class UpdateProveanData {
 
                 	                List<SNPChromosome28> snpchromosome28List = new ArrayList<SNPChromosome28>();
 
-                	     			snpchromosome28List = serviceSNPChromosome28.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome28List = serviceSNPChromosome28.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome28> iteratorSNPChromosome28 = snpchromosome28List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome28.hasNext()) {
@@ -812,7 +812,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosome32> snpchromosome32List = new ArrayList<SNPChromosome32>();
 
-                	     			snpchromosome32List = serviceSNPChromosome32.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosome32List = serviceSNPChromosome32.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosome32> iteratorSNPChromosome32 = snpchromosome32List.iterator();
                         	     	
                         	        while (iteratorSNPChromosome32.hasNext()) {
@@ -833,7 +833,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosomeLGE64> snpchromosomeLGE64List = new ArrayList<SNPChromosomeLGE64>();
 
-                	     			snpchromosomeLGE64List = serviceSNPChromosomeLGE64.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosomeLGE64List = serviceSNPChromosomeLGE64.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosomeLGE64> iteratorSNPChromosomeLGE64 = snpchromosomeLGE64List.iterator();
                         	     	
                         	        while (iteratorSNPChromosomeLGE64.hasNext()) {
@@ -854,7 +854,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosomeLGE22C19W28_E50C23> snpchromosomeLGE22C19W28_E50C23List = new ArrayList<SNPChromosomeLGE22C19W28_E50C23>();
 
-                	     			snpchromosomeLGE22C19W28_E50C23List = serviceSNPChromosomeLGE22C19W28_E50C23.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosomeLGE22C19W28_E50C23List = serviceSNPChromosomeLGE22C19W28_E50C23.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosomeLGE22C19W28_E50C23> iteratorSNPChromosomeLGE22C19W28_E50C23 = snpchromosomeLGE22C19W28_E50C23List.iterator();
                         	     	
                         	        while (iteratorSNPChromosomeLGE22C19W28_E50C23.hasNext()) {
@@ -875,7 +875,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosomeW> snpchromosomeWList = new ArrayList<SNPChromosomeW>();
 
-                	     			snpchromosomeWList = serviceSNPChromosomeW.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosomeWList = serviceSNPChromosomeW.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosomeW> iteratorSNPChromosomeW = snpchromosomeWList.iterator();
                         	     	
                         	        while (iteratorSNPChromosomeW.hasNext()) {
@@ -896,7 +896,7 @@ public class UpdateProveanData {
                 	     			
                 	                List<SNPChromosomeZ> snpchromosomeZList = new ArrayList<SNPChromosomeZ>();
 
-                	     			snpchromosomeZList = serviceSNPChromosomeZ.findBySnpId(proveandata.getChromosomeId());
+                	     			snpchromosomeZList = serviceSNPChromosomeZ.findBySnpId(proveandata.getSnpId());
                         	        Iterator<SNPChromosomeZ> iteratorSNPChromosomeZ = snpchromosomeZList.iterator();
                         	     	
                         	        while (iteratorSNPChromosomeZ.hasNext()) {
@@ -918,7 +918,10 @@ public class UpdateProveanData {
             			}
             		}
             		
-             		System.out.println(StringUtility.pad(intSNPChromosomeCount01, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount05");
+             		System.out.println(StringUtility.pad(intSNPChromosomeCount01, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount01");
+            		System.out.println(StringUtility.pad(intSNPChromosomeCount03, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount03");
+            		System.out.println(StringUtility.pad(intSNPChromosomeCount04, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount04");
+             		System.out.println(StringUtility.pad(intSNPChromosomeCount05, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount05");
             		System.out.println(StringUtility.pad(intSNPChromosomeCount06, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount06");
             		System.out.println(StringUtility.pad(intSNPChromosomeCount07, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount07");
             		System.out.println(StringUtility.pad(intSNPChromosomeCount08, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount08");

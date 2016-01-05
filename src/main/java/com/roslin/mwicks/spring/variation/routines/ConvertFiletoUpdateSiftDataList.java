@@ -92,7 +92,7 @@ public final class ConvertFiletoUpdateSiftDataList {
 	         	else {
 	         		
 	         		error++;
-	         		System.out.println("Error No." + error + " : " + dtoSiftData.toString());
+	         		//System.out.println("Error No." + error + " : " + dtoSiftData.toString());
 	         	}
 
 	     	}
@@ -101,7 +101,9 @@ public final class ConvertFiletoUpdateSiftDataList {
 		catch (Exception e) {
 			
 	        System.out.println("Exception : " + e.toString() );
-		}
+	        
+    		e.printStackTrace();
+    	}
 		
 		return outputSiftDataList;
 
