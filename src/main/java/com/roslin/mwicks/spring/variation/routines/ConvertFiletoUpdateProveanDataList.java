@@ -9,13 +9,15 @@ import java.util.List;
 
 import com.roslin.mwicks.utility.CsvUtil;
 import com.roslin.mwicks.utility.FileUtil;
-
+import com.roslin.mwicks.utility.StringUtility;
 import com.roslin.mwicks.spring.variation.dto.DTOProveanData;
 
 import com.roslin.mwicks.spring.variation.model.other.ProveanData;
 
 
 public final class ConvertFiletoUpdateProveanDataList {
+
+	private static final char PAD_CHAR = ' ';
 
 	public static List<ProveanData> run ( File file ) throws Exception {
 
@@ -88,8 +90,9 @@ public final class ConvertFiletoUpdateProveanDataList {
 	         		error++;
 	         		//System.out.println("Error No." + error + " : " + dtoProveanData.toString());
 	         	}
-
 	     	}
+	     	
+     		System.out.println(StringUtility.pad(error, 8, PAD_CHAR) + " Error Records IGNORED - CSV File!");
 		
 		}
 		catch (Exception e) {

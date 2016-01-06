@@ -99,10 +99,8 @@ public class UpdateProveanData {
     private static final String MSGLEVEL = "*";
 	private static final String STOP = "*";
 	
-	private static final char PAD_CHAR = '0';
+	private static final char PAD_CHAR = ' ';
 
-    private static final String PROPERTY_NAME_HIBERNATE_JDBC_BATCH_SIZE = "hibernate.jdbc.batch_size";
-	
     public static final Logger LOG = LoggerFactory.getLogger(UpdateProveanData.class);
 
     @PersistenceContext
@@ -129,10 +127,6 @@ public class UpdateProveanData {
             
             LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = (LocalContainerEntityManagerFactoryBean) applicationContext.getBean(LocalContainerEntityManagerFactoryBean.class);
 
-            Map<String, Object> jpaProperties = entityManagerFactoryBean.getJpaPropertyMap();
-            String strBatchSize = (String) jpaProperties.get(PROPERTY_NAME_HIBERNATE_JDBC_BATCH_SIZE);
-            int intBatchSize = ObjectConverter.convert(strBatchSize, Integer.class);
-            
     		if (args.length != 1 ) {
     			
     		    Wrapper.printMessage("ERROR! There MUST be 1 Command Line Arguments passed to this program!", MSGLEVEL, MSGLEVEL);
@@ -220,7 +214,8 @@ public class UpdateProveanData {
         	     	int intSNPChromosomeCountW = 0;
         	     	int intSNPChromosomeCountZ = 0;
 
-
+        	        int error = 0;
+        	        
             		for ( File file : filesFile ) {
             			
             			if ( !file.getName().equals(".DS_Store") ) {
@@ -246,20 +241,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome01> snpchromosome1List = new ArrayList<SNPChromosome01>();
                 	     			
                 	     			snpchromosome1List = serviceSNPChromosome01.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome01> iteratorSNPChromosome01 = snpchromosome1List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome01.hasNext()) {
+                	     			
+                	     			if ( snpchromosome1List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome01 snpchromosome01 = iteratorSNPChromosome01.next();
-                        	     		snpchromosome01.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome01.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome01.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome01.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
+                	     				
+                            	        Iterator<SNPChromosome01> iteratorSNPChromosome01 = snpchromosome1List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome01.hasNext()) {
 
-                        	     		serviceSNPChromosome01.update(snpchromosome01);
-                        	     		
-                        	     		intSNPChromosomeCount01++;
-                        	     	}
+                            	     		SNPChromosome01 snpchromosome01 = iteratorSNPChromosome01.next();
+                            	     		snpchromosome01.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome01.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome01.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome01.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome01.update(snpchromosome01);
+                            	     		
+                            	     		intSNPChromosomeCount01++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome3() ) {
@@ -267,20 +272,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome03> snpchromosome3List = new ArrayList<SNPChromosome03>();
 
                 	     			snpchromosome3List = serviceSNPChromosome03.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome03> iteratorSNPChromosome03 = snpchromosome3List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome03.hasNext()) {
+                	     			
+                	     			if ( snpchromosome3List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome03 snpchromosome03 = iteratorSNPChromosome03.next();
-                        	     		snpchromosome03.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome03.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome03.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome03.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome03.update(snpchromosome03);
+                            	        Iterator<SNPChromosome03> iteratorSNPChromosome03 = snpchromosome3List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome03.hasNext()) {
 
-                        	     		intSNPChromosomeCount03++;
-                        	        }
+                            	     		SNPChromosome03 snpchromosome03 = iteratorSNPChromosome03.next();
+                            	     		snpchromosome03.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome03.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome03.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome03.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome03.update(snpchromosome03);
+
+                            	     		intSNPChromosomeCount03++;
+                            	        }
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome4() ) {
@@ -288,20 +303,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome04> snpchromosome4List = new ArrayList<SNPChromosome04>();
 
                 	                snpchromosome4List = serviceSNPChromosome04.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome04> iteratorSNPChromosome04 = snpchromosome4List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome04.hasNext()) {
+                	                
+                	     			if ( snpchromosome4List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome04 snpchromosome04 = iteratorSNPChromosome04.next();
-                        	     		snpchromosome04.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome04.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome04.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome04.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome04.update(snpchromosome04);
-                        	     		
-                        	     		intSNPChromosomeCount04++;
-                        	     	}
+                            	        Iterator<SNPChromosome04> iteratorSNPChromosome04 = snpchromosome4List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome04.hasNext()) {
+
+                            	     		SNPChromosome04 snpchromosome04 = iteratorSNPChromosome04.next();
+                            	     		snpchromosome04.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome04.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome04.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome04.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome04.update(snpchromosome04);
+                            	     		
+                            	     		intSNPChromosomeCount04++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome5() ) {
@@ -309,20 +334,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome05> snpchromosome5List = new ArrayList<SNPChromosome05>();
 
                 	                snpchromosome5List = serviceSNPChromosome05.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome05> iteratorSNPChromosome05 = snpchromosome5List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome05.hasNext()) {
+                	                
+                	     			if ( snpchromosome5List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome05 snpchromosome05 = iteratorSNPChromosome05.next();
-                        	     		snpchromosome05.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome05.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome05.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome05.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome05.update(snpchromosome05);
-                        	     		
-                        	     		intSNPChromosomeCount05++;
-                        	     	}
+                            	        Iterator<SNPChromosome05> iteratorSNPChromosome05 = snpchromosome5List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome05.hasNext()) {
+
+                            	     		SNPChromosome05 snpchromosome05 = iteratorSNPChromosome05.next();
+                            	     		snpchromosome05.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome05.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome05.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome05.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome05.update(snpchromosome05);
+                            	     		
+                            	     		intSNPChromosomeCount05++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome6() ) {
@@ -330,20 +365,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome06> snpchromosome6List = new ArrayList<SNPChromosome06>();
 
                 	                snpchromosome6List = serviceSNPChromosome06.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome06> iteratorSNPChromosome06 = snpchromosome6List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome06.hasNext()) {
+                	                
+                	     			if ( snpchromosome6List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome06 snpchromosome06 = iteratorSNPChromosome06.next();
-                        	     		snpchromosome06.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome06.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome06.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome06.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome06.update(snpchromosome06);
-                        	     		
-                        	     		intSNPChromosomeCount06++;
-                        	     	}
+                            	        Iterator<SNPChromosome06> iteratorSNPChromosome06 = snpchromosome6List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome06.hasNext()) {
+
+                            	     		SNPChromosome06 snpchromosome06 = iteratorSNPChromosome06.next();
+                            	     		snpchromosome06.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome06.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome06.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome06.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome06.update(snpchromosome06);
+                            	     		
+                            	     		intSNPChromosomeCount06++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome7() ) {
@@ -351,20 +396,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome07> snpchromosome7List = new ArrayList<SNPChromosome07>();
 
                 	                snpchromosome7List = serviceSNPChromosome07.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome07> iteratorSNPChromosome07 = snpchromosome7List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome07.hasNext()) {
+                	                
+                	     			if ( snpchromosome7List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome07 snpchromosome07 = iteratorSNPChromosome07.next();
-                        	     		snpchromosome07.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome07.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome07.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome07.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome07.update(snpchromosome07);
-                        	     		
-                        	     		intSNPChromosomeCount07++;
-                        	     	}
+                            	        Iterator<SNPChromosome07> iteratorSNPChromosome07 = snpchromosome7List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome07.hasNext()) {
+
+                            	     		SNPChromosome07 snpchromosome07 = iteratorSNPChromosome07.next();
+                            	     		snpchromosome07.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome07.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome07.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome07.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome07.update(snpchromosome07);
+                            	     		
+                            	     		intSNPChromosomeCount07++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome8() ) {
@@ -372,20 +427,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome08> snpchromosome8List = new ArrayList<SNPChromosome08>();
 
                 	     			snpchromosome8List = serviceSNPChromosome08.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome08> iteratorSNPChromosome08 = snpchromosome8List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome08.hasNext()) {
+                	     			
+                	     			if ( snpchromosome8List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome08 snpchromosome08 = iteratorSNPChromosome08.next();
-                        	     		snpchromosome08.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome08.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome08.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome08.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome08.update(snpchromosome08);
-                        	     		
-                        	     		intSNPChromosomeCount08++;
-                        	     	}
+                            	        Iterator<SNPChromosome08> iteratorSNPChromosome08 = snpchromosome8List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome08.hasNext()) {
+
+                            	     		SNPChromosome08 snpchromosome08 = iteratorSNPChromosome08.next();
+                            	     		snpchromosome08.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome08.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome08.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome08.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome08.update(snpchromosome08);
+                            	     		
+                            	     		intSNPChromosomeCount08++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome9() ) {
@@ -393,20 +458,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome09> snpchromosome9List = new ArrayList<SNPChromosome09>();
 
                 	     			snpchromosome9List = serviceSNPChromosome09.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome09> iteratorSNPChromosome09 = snpchromosome9List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome09.hasNext()) {
+                	     			
+                	     			if ( snpchromosome9List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome09 snpchromosome09 = iteratorSNPChromosome09.next();
-                        	     		snpchromosome09.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome09.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome09.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome09.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome09.update(snpchromosome09);
-                        	     		
-                        	     		intSNPChromosomeCount09++;
-                        	     	}
+                            	        Iterator<SNPChromosome09> iteratorSNPChromosome09 = snpchromosome9List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome09.hasNext()) {
+
+                            	     		SNPChromosome09 snpchromosome09 = iteratorSNPChromosome09.next();
+                            	     		snpchromosome09.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome09.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome09.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome09.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome09.update(snpchromosome09);
+                            	     		
+                            	     		intSNPChromosomeCount09++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome10() ) {
@@ -414,20 +489,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome10> snpchromosome10List = new ArrayList<SNPChromosome10>();
 
                 	     			snpchromosome10List = serviceSNPChromosome10.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome10> iteratorSNPChromosome10 = snpchromosome10List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome10.hasNext()) {
+                	     			
+                	     			if ( snpchromosome10List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome10 snpchromosome10 = iteratorSNPChromosome10.next();
-                        	     		snpchromosome10.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome10.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome10.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome10.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome10.update(snpchromosome10);
-                        	     		
-                        	     		intSNPChromosomeCount10++;
-                        	     	}
+                            	        Iterator<SNPChromosome10> iteratorSNPChromosome10 = snpchromosome10List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome10.hasNext()) {
+
+                            	     		SNPChromosome10 snpchromosome10 = iteratorSNPChromosome10.next();
+                            	     		snpchromosome10.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome10.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome10.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome10.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome10.update(snpchromosome10);
+                            	     		
+                            	     		intSNPChromosomeCount10++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome11() ) {
@@ -435,20 +520,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome11> snpchromosome11List = new ArrayList<SNPChromosome11>();
 
                 	     			snpchromosome11List = serviceSNPChromosome11.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome11> iteratorSNPChromosome11 = snpchromosome11List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome11.hasNext()) {
+                	     			
+                	     			if ( snpchromosome11List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome11 snpchromosome11 = iteratorSNPChromosome11.next();
-                        	     		snpchromosome11.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome11.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome11.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome11.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome11.update(snpchromosome11);
-                        	     		
-                        	     		intSNPChromosomeCount11++;
-                        	     	}
+                            	        Iterator<SNPChromosome11> iteratorSNPChromosome11 = snpchromosome11List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome11.hasNext()) {
+
+                            	     		SNPChromosome11 snpchromosome11 = iteratorSNPChromosome11.next();
+                            	     		snpchromosome11.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome11.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome11.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome11.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome11.update(snpchromosome11);
+                            	     		
+                            	     		intSNPChromosomeCount11++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome12() ) {
@@ -456,20 +551,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome12> snpchromosome12List = new ArrayList<SNPChromosome12>();
 
                 	                snpchromosome12List = serviceSNPChromosome12.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome12> iteratorSNPChromosome12 = snpchromosome12List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome12.hasNext()) {
+                	                
+                	     			if ( snpchromosome12List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome12 snpchromosome12 = iteratorSNPChromosome12.next();
-                        	     		snpchromosome12.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome12.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome12.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome12.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome12.update(snpchromosome12);
-                        	     		
-                        	     		intSNPChromosomeCount12++;
-                        	     	}
+                            	        Iterator<SNPChromosome12> iteratorSNPChromosome12 = snpchromosome12List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome12.hasNext()) {
+
+                            	     		SNPChromosome12 snpchromosome12 = iteratorSNPChromosome12.next();
+                            	     		snpchromosome12.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome12.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome12.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome12.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome12.update(snpchromosome12);
+                            	     		
+                            	     		intSNPChromosomeCount12++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome13() ) {
@@ -477,20 +582,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome13> snpchromosome13List = new ArrayList<SNPChromosome13>();
 
                 	                snpchromosome13List = serviceSNPChromosome13.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome13> iteratorSNPChromosome13 = snpchromosome13List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome13.hasNext()) {
 
-                        	     		SNPChromosome13 snpchromosome13 = iteratorSNPChromosome13.next();
-                        	     		snpchromosome13.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome13.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome13.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome13.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     			if ( snpchromosome13List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		serviceSNPChromosome13.update(snpchromosome13);
-                        	     		
-                        	     		intSNPChromosomeCount13++;
-                        	     	}
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
+
+                    	     			Iterator<SNPChromosome13> iteratorSNPChromosome13 = snpchromosome13List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome13.hasNext()) {
+
+                            	     		SNPChromosome13 snpchromosome13 = iteratorSNPChromosome13.next();
+                            	     		snpchromosome13.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome13.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome13.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome13.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome13.update(snpchromosome13);
+                            	     		
+                            	     		intSNPChromosomeCount13++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome14() ) {
@@ -498,20 +613,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome14> snpchromosome14List = new ArrayList<SNPChromosome14>();
 
                 	                snpchromosome14List = serviceSNPChromosome14.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome14> iteratorSNPChromosome14 = snpchromosome14List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome14.hasNext()) {
+                	                
+                	     			if ( snpchromosome14List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome14 snpchromosome14 = iteratorSNPChromosome14.next();
-                        	     		snpchromosome14.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome14.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome14.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome14.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome14.update(snpchromosome14);
-                        	     		
-                        	     		intSNPChromosomeCount14++;
-                        	     	}
+                            	        Iterator<SNPChromosome14> iteratorSNPChromosome14 = snpchromosome14List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome14.hasNext()) {
+
+                            	     		SNPChromosome14 snpchromosome14 = iteratorSNPChromosome14.next();
+                            	     		snpchromosome14.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome14.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome14.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome14.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome14.update(snpchromosome14);
+                            	     		
+                            	     		intSNPChromosomeCount14++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome15() ) {
@@ -519,20 +644,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome15> snpchromosome15List = new ArrayList<SNPChromosome15>();
 
                 	                snpchromosome15List = serviceSNPChromosome15.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome15> iteratorSNPChromosome15 = snpchromosome15List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome15.hasNext()) {
+                	                
+                	     			if ( snpchromosome15List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome15 snpchromosome15 = iteratorSNPChromosome15.next();
-                        	     		snpchromosome15.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome15.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome15.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome15.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome15.update(snpchromosome15);
-                        	     		
-                        	     		intSNPChromosomeCount15++;
-                        	     	}
+                            	        Iterator<SNPChromosome15> iteratorSNPChromosome15 = snpchromosome15List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome15.hasNext()) {
+
+                            	     		SNPChromosome15 snpchromosome15 = iteratorSNPChromosome15.next();
+                            	     		snpchromosome15.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome15.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome15.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome15.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome15.update(snpchromosome15);
+                            	     		
+                            	     		intSNPChromosomeCount15++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome16() ) {
@@ -540,20 +675,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome16> snpchromosome16List = new ArrayList<SNPChromosome16>();
 
                 	     			snpchromosome16List = serviceSNPChromosome16.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome16> iteratorSNPChromosome16 = snpchromosome16List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome16.hasNext()) {
+                	     			
+                	     			if ( snpchromosome16List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome16 snpchromosome16 = iteratorSNPChromosome16.next();
-                        	     		snpchromosome16.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome16.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome16.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome16.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome16.update(snpchromosome16);
-                        	     		
-                        	     		intSNPChromosomeCount16++;
-                        	     	}
+                            	        Iterator<SNPChromosome16> iteratorSNPChromosome16 = snpchromosome16List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome16.hasNext()) {
+
+                            	     		SNPChromosome16 snpchromosome16 = iteratorSNPChromosome16.next();
+                            	     		snpchromosome16.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome16.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome16.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome16.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome16.update(snpchromosome16);
+                            	     		
+                            	     		intSNPChromosomeCount16++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome17() ) {
@@ -561,20 +706,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome17> snpchromosome17List = new ArrayList<SNPChromosome17>();
 
                 	     			snpchromosome17List = serviceSNPChromosome17.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome17> iteratorSNPChromosome17 = snpchromosome17List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome17.hasNext()) {
+                	     			
+                	     			if ( snpchromosome17List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome17 snpchromosome17 = iteratorSNPChromosome17.next();
-                        	     		snpchromosome17.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome17.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome17.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome17.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome17.update(snpchromosome17);
-                        	     		
-                        	     		intSNPChromosomeCount17++;
-                        	     	}
+                            	        Iterator<SNPChromosome17> iteratorSNPChromosome17 = snpchromosome17List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome17.hasNext()) {
+
+                            	     		SNPChromosome17 snpchromosome17 = iteratorSNPChromosome17.next();
+                            	     		snpchromosome17.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome17.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome17.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome17.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome17.update(snpchromosome17);
+                            	     		
+                            	     		intSNPChromosomeCount17++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome18() ) {
@@ -582,20 +737,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome18> snpchromosome18List = new ArrayList<SNPChromosome18>();
 
                 	     			snpchromosome18List = serviceSNPChromosome18.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome18> iteratorSNPChromosome18 = snpchromosome18List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome18.hasNext()) {
+                	     			
+                	     			if ( snpchromosome18List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome18 snpchromosome18 = iteratorSNPChromosome18.next();
-                        	     		snpchromosome18.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome18.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome18.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome18.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome18.update(snpchromosome18);
-                        	     		
-                        	     		intSNPChromosomeCount18++;
-                        	     	}
+                            	        Iterator<SNPChromosome18> iteratorSNPChromosome18 = snpchromosome18List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome18.hasNext()) {
+
+                            	     		SNPChromosome18 snpchromosome18 = iteratorSNPChromosome18.next();
+                            	     		snpchromosome18.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome18.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome18.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome18.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome18.update(snpchromosome18);
+                            	     		
+                            	     		intSNPChromosomeCount18++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome19() ) {
@@ -603,20 +768,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome19> snpchromosome19List = new ArrayList<SNPChromosome19>();
 
                 	     			snpchromosome19List = serviceSNPChromosome19.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome19> iteratorSNPChromosome19 = snpchromosome19List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome19.hasNext()) {
+                	     			
+                	     			if ( snpchromosome19List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome19 snpchromosome19 = iteratorSNPChromosome19.next();
-                        	     		snpchromosome19.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome19.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome19.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome19.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome19.update(snpchromosome19);
-                        	     		
-                        	     		intSNPChromosomeCount19++;
-                        	     	}
+                            	        Iterator<SNPChromosome19> iteratorSNPChromosome19 = snpchromosome19List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome19.hasNext()) {
+
+                            	     		SNPChromosome19 snpchromosome19 = iteratorSNPChromosome19.next();
+                            	     		snpchromosome19.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome19.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome19.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome19.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome19.update(snpchromosome19);
+                            	     		
+                            	     		intSNPChromosomeCount19++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome20() ) {
@@ -624,20 +799,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome20> snpchromosome20List = new ArrayList<SNPChromosome20>();
 
                 	     			snpchromosome20List = serviceSNPChromosome20.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome20> iteratorSNPChromosome20 = snpchromosome20List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome20.hasNext()) {
+                	     			
+                	     			if ( snpchromosome20List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome20 snpchromosome20 = iteratorSNPChromosome20.next();
-                        	     		snpchromosome20.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome20.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome20.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome20.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome20.update(snpchromosome20);
-                        	     		
-                        	     		intSNPChromosomeCount20++;
-                        	     	}
+                            	        Iterator<SNPChromosome20> iteratorSNPChromosome20 = snpchromosome20List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome20.hasNext()) {
+
+                            	     		SNPChromosome20 snpchromosome20 = iteratorSNPChromosome20.next();
+                            	     		snpchromosome20.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome20.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome20.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome20.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome20.update(snpchromosome20);
+                            	     		
+                            	     		intSNPChromosomeCount20++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome21() ) {
@@ -645,20 +830,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome21> snpchromosome21List = new ArrayList<SNPChromosome21>();
 
                 	     			snpchromosome21List = serviceSNPChromosome21.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome21> iteratorSNPChromosome21 = snpchromosome21List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome21.hasNext()) {
+                	     			
+                	     			if ( snpchromosome21List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome21 snpchromosome21 = iteratorSNPChromosome21.next();
-                        	     		snpchromosome21.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome21.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome21.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome21.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome21.update(snpchromosome21);
-                        	     		
-                        	     		intSNPChromosomeCount21++;
-                        	     		                        	     	}
+                            	        Iterator<SNPChromosome21> iteratorSNPChromosome21 = snpchromosome21List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome21.hasNext()) {
+
+                            	     		SNPChromosome21 snpchromosome21 = iteratorSNPChromosome21.next();
+                            	     		snpchromosome21.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome21.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome21.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome21.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome21.update(snpchromosome21);
+                            	     		
+                            	     		intSNPChromosomeCount21++;
+                            	        }
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome22() ) {
@@ -666,20 +861,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome22> snpchromosome22List = new ArrayList<SNPChromosome22>();
 
                 	     			snpchromosome22List = serviceSNPChromosome22.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome22> iteratorSNPChromosome22 = snpchromosome22List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome22.hasNext()) {
+                	     			
+                	     			if ( snpchromosome22List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome22 snpchromosome22 = iteratorSNPChromosome22.next();
-                        	     		snpchromosome22.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome22.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome22.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome22.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome22.update(snpchromosome22);
-                        	     		
-                        	     		intSNPChromosomeCount22++;
-                        	     	}
+                            	        Iterator<SNPChromosome22> iteratorSNPChromosome22 = snpchromosome22List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome22.hasNext()) {
+
+                            	     		SNPChromosome22 snpchromosome22 = iteratorSNPChromosome22.next();
+                            	     		snpchromosome22.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome22.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome22.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome22.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome22.update(snpchromosome22);
+                            	     		
+                            	     		intSNPChromosomeCount22++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome23() ) {
@@ -687,20 +892,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome23> snpchromosome23List = new ArrayList<SNPChromosome23>();
                 	                
                 	                snpchromosome23List = serviceSNPChromosome23.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome23> iteratorSNPChromosome23 = snpchromosome23List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome23.hasNext()) {
+                	                
+                	     			if ( snpchromosome23List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome23 snpchromosome23 = iteratorSNPChromosome23.next();
-                        	     		snpchromosome23.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome23.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome23.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome23.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome23.update(snpchromosome23);
-                        	     		
-                        	     		intSNPChromosomeCount23++;
-                        	     	}
+                            	        Iterator<SNPChromosome23> iteratorSNPChromosome23 = snpchromosome23List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome23.hasNext()) {
+
+                            	     		SNPChromosome23 snpchromosome23 = iteratorSNPChromosome23.next();
+                            	     		snpchromosome23.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome23.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome23.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome23.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome23.update(snpchromosome23);
+                            	     		
+                            	     		intSNPChromosomeCount23++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome24() ) {
@@ -708,20 +923,30 @@ public class UpdateProveanData {
                 	     			List<SNPChromosome24> snpchromosome24List = new ArrayList<SNPChromosome24>();
 
                 	                snpchromosome24List = serviceSNPChromosome24.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome24> iteratorSNPChromosome24 = snpchromosome24List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome24.hasNext()) {
+                	                
+                	     			if ( snpchromosome24List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome24 snpchromosome24 = iteratorSNPChromosome24.next();
-                        	     		snpchromosome24.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome24.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome24.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome24.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome24.update(snpchromosome24);
-                        	     		
-                        	     		intSNPChromosomeCount24++;
-                        	     	}
+                            	        Iterator<SNPChromosome24> iteratorSNPChromosome24 = snpchromosome24List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome24.hasNext()) {
+
+                            	     		SNPChromosome24 snpchromosome24 = iteratorSNPChromosome24.next();
+                            	     		snpchromosome24.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome24.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome24.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome24.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome24.update(snpchromosome24);
+                            	     		
+                            	     		intSNPChromosomeCount24++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome25() ) {
@@ -729,20 +954,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome25> snpchromosome25List = new ArrayList<SNPChromosome25>();
 
                 	     			snpchromosome25List = serviceSNPChromosome25.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome25> iteratorSNPChromosome25 = snpchromosome25List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome25.hasNext()) {
+                	     			
+                	     			if ( snpchromosome25List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome25 snpchromosome25 = iteratorSNPChromosome25.next();
-                        	     		snpchromosome25.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome25.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome25.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome25.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome25.update(snpchromosome25);
-                        	     		
-                        	     		intSNPChromosomeCount25++;
-                        	     	}
+                            	        Iterator<SNPChromosome25> iteratorSNPChromosome25 = snpchromosome25List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome25.hasNext()) {
+
+                            	     		SNPChromosome25 snpchromosome25 = iteratorSNPChromosome25.next();
+                            	     		snpchromosome25.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome25.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome25.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome25.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome25.update(snpchromosome25);
+                            	     		
+                            	     		intSNPChromosomeCount25++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome26() ) {
@@ -750,20 +985,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome26> snpchromosome26List = new ArrayList<SNPChromosome26>();
 
                 	     			snpchromosome26List = serviceSNPChromosome26.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome26> iteratorSNPChromosome26 = snpchromosome26List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome26.hasNext()) {
+                	     			
+                	     			if ( snpchromosome26List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome26 snpchromosome26 = iteratorSNPChromosome26.next();
-                        	     		snpchromosome26.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome26.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome26.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome26.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome26.update(snpchromosome26);
-                        	     		
-                        	     		intSNPChromosomeCount26++;
-                        	     	}
+                            	        Iterator<SNPChromosome26> iteratorSNPChromosome26 = snpchromosome26List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome26.hasNext()) {
+
+                            	     		SNPChromosome26 snpchromosome26 = iteratorSNPChromosome26.next();
+                            	     		snpchromosome26.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome26.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome26.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome26.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome26.update(snpchromosome26);
+                            	     		
+                            	     		intSNPChromosomeCount26++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome27() ) {
@@ -771,20 +1016,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome27> snpchromosome27List = new ArrayList<SNPChromosome27>();
 
                 	     			snpchromosome27List = serviceSNPChromosome27.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome27> iteratorSNPChromosome27 = snpchromosome27List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome27.hasNext()) {
+                	     			
+                	     			if ( snpchromosome27List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome27 snpchromosome27 = iteratorSNPChromosome27.next();
-                        	     		snpchromosome27.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome27.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome27.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome27.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome27.update(snpchromosome27);
-                        	     		
-                        	     		intSNPChromosomeCount27++;
-                        	     	}
+                            	        Iterator<SNPChromosome27> iteratorSNPChromosome27 = snpchromosome27List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome27.hasNext()) {
+
+                            	     		SNPChromosome27 snpchromosome27 = iteratorSNPChromosome27.next();
+                            	     		snpchromosome27.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome27.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome27.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome27.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome27.update(snpchromosome27);
+                            	     		
+                            	     		intSNPChromosomeCount27++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome28() ) {
@@ -792,20 +1047,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome28> snpchromosome28List = new ArrayList<SNPChromosome28>();
 
                 	     			snpchromosome28List = serviceSNPChromosome28.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome28> iteratorSNPChromosome28 = snpchromosome28List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome28.hasNext()) {
+                	     			
+                	     			if ( snpchromosome28List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome28 snpchromosome28 = iteratorSNPChromosome28.next();
-                        	     		snpchromosome28.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome28.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome28.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome28.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
+                	     				
+                            	        Iterator<SNPChromosome28> iteratorSNPChromosome28 = snpchromosome28List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome28.hasNext()) {
 
-                        	     		serviceSNPChromosome28.update(snpchromosome28);
-                        	     		
-                        	     		intSNPChromosomeCount28++;
-                        	     	}
+                            	     		SNPChromosome28 snpchromosome28 = iteratorSNPChromosome28.next();
+                            	     		snpchromosome28.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome28.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome28.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome28.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome28.update(snpchromosome28);
+                            	     		
+                            	     		intSNPChromosomeCount28++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosome32() ) {
@@ -813,20 +1078,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosome32> snpchromosome32List = new ArrayList<SNPChromosome32>();
 
                 	     			snpchromosome32List = serviceSNPChromosome32.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosome32> iteratorSNPChromosome32 = snpchromosome32List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosome32.hasNext()) {
+                	     			
+                	     			if ( snpchromosome32List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosome32 snpchromosome32 = iteratorSNPChromosome32.next();
-                        	     		snpchromosome32.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosome32.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosome32.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosome32.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosome32.update(snpchromosome32);
-                        	     		
-                        	     		intSNPChromosomeCount32++;
-                        	     	}
+                            	        Iterator<SNPChromosome32> iteratorSNPChromosome32 = snpchromosome32List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosome32.hasNext()) {
+
+                            	     		SNPChromosome32 snpchromosome32 = iteratorSNPChromosome32.next();
+                            	     		snpchromosome32.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosome32.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosome32.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosome32.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosome32.update(snpchromosome32);
+                            	     		
+                            	     		intSNPChromosomeCount32++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosomeLGE64() ) {
@@ -834,20 +1109,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosomeLGE64> snpchromosomeLGE64List = new ArrayList<SNPChromosomeLGE64>();
 
                 	     			snpchromosomeLGE64List = serviceSNPChromosomeLGE64.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosomeLGE64> iteratorSNPChromosomeLGE64 = snpchromosomeLGE64List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosomeLGE64.hasNext()) {
+                	     			
+                	     			if ( snpchromosomeLGE64List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosomeLGE64 snpchromosomeLGE64 = iteratorSNPChromosomeLGE64.next();
-                        	     		snpchromosomeLGE64.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosomeLGE64.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosomeLGE64.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosomeLGE64.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
 
-                        	     		serviceSNPChromosomeLGE64.update(snpchromosomeLGE64);
-                        	     		
-                        	     		intSNPChromosomeCountLGE64++;
-                        	     	}
+                            	        Iterator<SNPChromosomeLGE64> iteratorSNPChromosomeLGE64 = snpchromosomeLGE64List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosomeLGE64.hasNext()) {
+
+                            	     		SNPChromosomeLGE64 snpchromosomeLGE64 = iteratorSNPChromosomeLGE64.next();
+                            	     		snpchromosomeLGE64.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosomeLGE64.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosomeLGE64.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosomeLGE64.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosomeLGE64.update(snpchromosomeLGE64);
+                            	     		
+                            	     		intSNPChromosomeCountLGE64++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosomeLGE22C19W28_E50C23() ) {
@@ -855,20 +1140,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosomeLGE22C19W28_E50C23> snpchromosomeLGE22C19W28_E50C23List = new ArrayList<SNPChromosomeLGE22C19W28_E50C23>();
 
                 	     			snpchromosomeLGE22C19W28_E50C23List = serviceSNPChromosomeLGE22C19W28_E50C23.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosomeLGE22C19W28_E50C23> iteratorSNPChromosomeLGE22C19W28_E50C23 = snpchromosomeLGE22C19W28_E50C23List.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosomeLGE22C19W28_E50C23.hasNext()) {
+                	     			
+                	     			if ( snpchromosomeLGE22C19W28_E50C23List.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosomeLGE22C19W28_E50C23 snpchromosomeLGE22C19W28_E50C23 = iteratorSNPChromosomeLGE22C19W28_E50C23.next();
-                        	     		snpchromosomeLGE22C19W28_E50C23.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosomeLGE22C19W28_E50C23.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosomeLGE22C19W28_E50C23.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosomeLGE22C19W28_E50C23.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
+                	     				
+                            	        Iterator<SNPChromosomeLGE22C19W28_E50C23> iteratorSNPChromosomeLGE22C19W28_E50C23 = snpchromosomeLGE22C19W28_E50C23List.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosomeLGE22C19W28_E50C23.hasNext()) {
 
-                        	     		serviceSNPChromosomeLGE22C19W28_E50C23.update(snpchromosomeLGE22C19W28_E50C23);
-                        	     		
-                        	     		intSNPChromosomeCountLGE22C19W28_E50C23++;
-                        	     	}
+                            	     		SNPChromosomeLGE22C19W28_E50C23 snpchromosomeLGE22C19W28_E50C23 = iteratorSNPChromosomeLGE22C19W28_E50C23.next();
+                            	     		snpchromosomeLGE22C19W28_E50C23.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosomeLGE22C19W28_E50C23.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosomeLGE22C19W28_E50C23.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosomeLGE22C19W28_E50C23.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosomeLGE22C19W28_E50C23.update(snpchromosomeLGE22C19W28_E50C23);
+                            	     		
+                            	     		intSNPChromosomeCountLGE22C19W28_E50C23++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosomeW() ) {
@@ -876,20 +1171,30 @@ public class UpdateProveanData {
                 	                List<SNPChromosomeW> snpchromosomeWList = new ArrayList<SNPChromosomeW>();
 
                 	     			snpchromosomeWList = serviceSNPChromosomeW.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosomeW> iteratorSNPChromosomeW = snpchromosomeWList.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosomeW.hasNext()) {
+                	     			
+                	     			if ( snpchromosomeWList.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosomeW snpchromosomeW = iteratorSNPChromosomeW.next();
-                        	     		snpchromosomeW.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosomeW.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosomeW.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosomeW.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
+                	     				
+                            	        Iterator<SNPChromosomeW> iteratorSNPChromosomeW = snpchromosomeWList.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosomeW.hasNext()) {
 
-                        	     		serviceSNPChromosomeW.update(snpchromosomeW);
-                        	     		
-                        	     		intSNPChromosomeCountW++;
-                        	     	}
+                            	     		SNPChromosomeW snpchromosomeW = iteratorSNPChromosomeW.next();
+                            	     		snpchromosomeW.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosomeW.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosomeW.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosomeW.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosomeW.update(snpchromosomeW);
+                            	     		
+                            	     		intSNPChromosomeCountW++;
+                            	     	}
+                	     			}
                 	     		}
 
                 	     		if ( proveandata.isChromosomeZ() ) {
@@ -897,27 +1202,37 @@ public class UpdateProveanData {
                 	                List<SNPChromosomeZ> snpchromosomeZList = new ArrayList<SNPChromosomeZ>();
 
                 	     			snpchromosomeZList = serviceSNPChromosomeZ.findBySnpId(proveandata.getSnpId());
-                        	        Iterator<SNPChromosomeZ> iteratorSNPChromosomeZ = snpchromosomeZList.iterator();
-                        	     	
-                        	        while (iteratorSNPChromosomeZ.hasNext()) {
+                	     			
+                	     			if ( snpchromosomeZList.isEmpty() ) {
+                	     				
+                	     				error++;
 
-                        	     		SNPChromosomeZ snpchromosomeZ = iteratorSNPChromosomeZ.next();
-                        	     		snpchromosomeZ.setAminoAcidSubs(proveandata.getAminoAcidSubs());
-                        	     		snpchromosomeZ.setScoreProvean(proveandata.getScoreProvean());
-                        	     		snpchromosomeZ.setProteinAlignNumber(proveandata.getProteinAlignNumber());
-                        	     		snpchromosomeZ.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+                	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                	     			}
+                	     			else {
+                	     				
+                            	        Iterator<SNPChromosomeZ> iteratorSNPChromosomeZ = snpchromosomeZList.iterator();
+                            	     	
+                            	        while (iteratorSNPChromosomeZ.hasNext()) {
 
-                        	     		serviceSNPChromosomeZ.update(snpchromosomeZ);
-                        	     		
-                        	     		intSNPChromosomeCountZ++;
-                        	     	}
+                            	     		SNPChromosomeZ snpchromosomeZ = iteratorSNPChromosomeZ.next();
+                            	     		snpchromosomeZ.setAminoAcidSubs(proveandata.getAminoAcidSubs());
+                            	     		snpchromosomeZ.setScoreProvean(proveandata.getScoreProvean());
+                            	     		snpchromosomeZ.setProteinAlignNumber(proveandata.getProteinAlignNumber());
+                            	     		snpchromosomeZ.setTotalAlignSequenceNumber(proveandata.getTotalAlignSequenceNumber());
+
+                            	     		serviceSNPChromosomeZ.update(snpchromosomeZ);
+                            	     		
+                            	     		intSNPChromosomeCountZ++;
+                            	     	}
+                	     			}
                 	     		}
-
-
                 	     	}
             			}
             		}
             		
+             		System.out.println(StringUtility.pad(error, 8, PAD_CHAR) + " Error Records IGNORED - SNP Id NOT FOUND!");
+
              		System.out.println(StringUtility.pad(intSNPChromosomeCount01, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount01");
             		System.out.println(StringUtility.pad(intSNPChromosomeCount03, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount03");
             		System.out.println(StringUtility.pad(intSNPChromosomeCount04, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount04");

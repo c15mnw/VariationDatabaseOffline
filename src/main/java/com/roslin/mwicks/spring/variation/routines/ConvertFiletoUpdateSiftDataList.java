@@ -9,13 +9,15 @@ import java.util.List;
 
 import com.roslin.mwicks.utility.CsvUtil;
 import com.roslin.mwicks.utility.FileUtil;
-
+import com.roslin.mwicks.utility.StringUtility;
 import com.roslin.mwicks.spring.variation.dto.DTOSiftData;
 
 import com.roslin.mwicks.spring.variation.model.other.SiftData;
 
 
 public final class ConvertFiletoUpdateSiftDataList {
+
+	private static final char PAD_CHAR = ' ';
 
 	public static List<SiftData> run ( File file ) throws Exception {
 
@@ -96,6 +98,8 @@ public final class ConvertFiletoUpdateSiftDataList {
 	         	}
 
 	     	}
+	     	
+     		System.out.println(StringUtility.pad(error, 8, PAD_CHAR) + " Error Records IGNORED - CSV File!");
 		
 		}
 		catch (Exception e) {
