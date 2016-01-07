@@ -10,8 +10,7 @@ import java.util.List;
 import com.roslin.mwicks.utility.CsvUtil;
 import com.roslin.mwicks.utility.FileUtil;
 import com.roslin.mwicks.utility.StringUtility;
-import com.roslin.mwicks.spring.variation.dto.DTOSiftData;
-
+import com.roslin.mwicks.spring.variation.dto.offline.DTOSiftData;
 import com.roslin.mwicks.spring.variation.model.other.SiftData;
 
 

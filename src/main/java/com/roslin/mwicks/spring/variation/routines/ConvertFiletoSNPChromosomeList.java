@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.roslin.mwicks.utility.CsvUtil;
 import com.roslin.mwicks.utility.FileUtil;
-import com.roslin.mwicks.spring.variation.dto.DTOSNPChromosome;
+import com.roslin.mwicks.spring.variation.dto.offline.DTOSNPChromosome;
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
 
 

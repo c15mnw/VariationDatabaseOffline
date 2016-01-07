@@ -9,9 +9,7 @@ import java.util.List;
 
 import com.roslin.mwicks.utility.CsvUtil;
 import com.roslin.mwicks.utility.FileUtil;
-
-import com.roslin.mwicks.spring.variation.dto.DTOEnsemblGene;
-
+import com.roslin.mwicks.spring.variation.dto.offline.DTOEnsemblGene;
 import com.roslin.mwicks.spring.variation.model.ensemblgene.EnsemblGene;
 
 
