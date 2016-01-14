@@ -235,7 +235,7 @@ public class UpdateSiftData {
                 	     	while (iteratorSiftData.hasNext()) {
                 	    		
                 	     		SiftData siftdata = iteratorSiftData.next();
-                	     		
+
                 	     		if ( siftdata.isChromosome1() ) {
                 	     			
                 	                List<SNPChromosome01> snpchromosome1List = new ArrayList<SNPChromosome01>();
