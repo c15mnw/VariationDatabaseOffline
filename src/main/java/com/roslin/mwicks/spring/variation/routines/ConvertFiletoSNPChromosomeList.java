@@ -225,7 +225,39 @@ public final class ConvertFiletoSNPChromosomeList {
 	        		
 	        		i++;
 	         	}
-		     	
+
+	         	dtosnpchromosome.setStrain7AlleleRatio("0.0");
+	            dtosnpchromosome.setStrain7AlleleAlternativeCount("0");
+	            dtosnpchromosome.setStrain7AlleleReferenceCount("1");
+
+	            dtosnpchromosome.setStrainPAlleleRatio("0.0");
+	            dtosnpchromosome.setStrainPAlleleAlternativeCount("0");
+	            dtosnpchromosome.setStrainPAlleleReferenceCount("1");
+
+	            dtosnpchromosome.setStrainWAlleleRatio("0.0");
+	            dtosnpchromosome.setStrainWAlleleAlternativeCount("0");
+	            dtosnpchromosome.setStrainWAlleleReferenceCount("1");
+
+	            dtosnpchromosome.setStrainNAlleleRatio("0.0");
+	            dtosnpchromosome.setStrainNAlleleAlternativeCount("0");
+	            dtosnpchromosome.setStrainNAlleleReferenceCount("1");
+
+	            dtosnpchromosome.setStrain15IAlleleRatio("0.0");
+	            dtosnpchromosome.setStrain15IAlleleAlternativeCount("0");
+	            dtosnpchromosome.setStrain15IAlleleReferenceCount("1");
+
+	            dtosnpchromosome.setStrainZeroAlleleRatio("0.0");
+	            dtosnpchromosome.setStrainZeroAlleleAlternativeCount("0");
+	            dtosnpchromosome.setStrainZeroAlleleReferenceCount("1");
+
+	            dtosnpchromosome.setStrain6AlleleRatio("0.0");
+	            dtosnpchromosome.setStrain6AlleleAlternativeCount("0");
+	            dtosnpchromosome.setStrain6AlleleReferenceCount("1");
+
+	            dtosnpchromosome.setStrainCAlleleRatio("0.0");
+	            dtosnpchromosome.setStrainCAlleleAlternativeCount("0");
+	            dtosnpchromosome.setStrainCAlleleReferenceCount("1");
+
 	         	dtosnpchromosome.setAminoAcidSubs("");
 	         	dtosnpchromosome.setPredictionCategory("");
 	         	dtosnpchromosome.setScoreSift("0");
@@ -236,20 +268,21 @@ public final class ConvertFiletoSNPChromosomeList {
 
 	         	if ( dtosnpchromosome.isThisAValidSNPChromosome() ) {
 	         		
+	         		//System.out.println("dtosnpchromosome.toString() : " + dtosnpchromosome.toString());
 		         	outputsnpchromosomeList.add(dtosnpchromosome.convertToSNPChromosome());
 	         	}
 	         	else {
 	         		
 	         		error++;
 	         		System.out.println("Error No." + error + " : " + dtosnpchromosome.toString());
+	    	        System.exit(99);
 	         	}
-
 	     	}
-		
 		}
 		catch (Exception e) {
 			
 	        System.out.println("Exception : " + e.toString() );
+	        System.exit(99);
 		}
 		
 		return outputsnpchromosomeList;

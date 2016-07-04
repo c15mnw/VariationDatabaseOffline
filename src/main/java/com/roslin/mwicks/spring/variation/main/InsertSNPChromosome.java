@@ -1,4 +1,4 @@
-package com.roslin.mwicks.spring.variation.main;
+	package com.roslin.mwicks.spring.variation.main;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -22,6 +22,7 @@ import com.roslin.mwicks.spring.variation.routines.ConvertFiletoSNPChromosomeLis
 
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome01;
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome02;
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome03;
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome04;
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome05;
@@ -55,6 +56,7 @@ import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeLGE22
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeLGE64;
 
 import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome01;
+import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome02;
 import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome03;
 import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome04;
 import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome05;
@@ -152,6 +154,7 @@ public class InsertSNPChromosome {
             		int totalFileCount = 0;
             		
                     int snpchromosome1Total = 0;
+                    int snpchromosome2Total = 0;
                     int snpchromosome3Total = 0;
                     int snpchromosome4Total = 0;
                     int snpchromosome5Total = 0;
@@ -193,6 +196,7 @@ public class InsertSNPChromosome {
                             List<SNPChromosome> snpchromosomeList = ConvertFiletoSNPChromosomeList.run(file);
                             
                             List<SNPChromosome01> snpchromosome1List = new ArrayList<SNPChromosome01>();
+                            List<SNPChromosome02> snpchromosome2List = new ArrayList<SNPChromosome02>();
                             List<SNPChromosome03> snpchromosome3List = new ArrayList<SNPChromosome03>();
                             List<SNPChromosome04> snpchromosome4List = new ArrayList<SNPChromosome04>();
                             List<SNPChromosome05> snpchromosome5List = new ArrayList<SNPChromosome05>();
@@ -226,6 +230,7 @@ public class InsertSNPChromosome {
                             List<SNPChromosomeLGE64> snpchromosomeLGE64List = new ArrayList<SNPChromosomeLGE64>();
 
                             ServiceSNPChromosome01 serviceSNPChromosome1 = (ServiceSNPChromosome01) applicationContext.getBean(ServiceSNPChromosome01.class);
+                            ServiceSNPChromosome02 serviceSNPChromosome2 = (ServiceSNPChromosome02) applicationContext.getBean(ServiceSNPChromosome02.class);
                             ServiceSNPChromosome03 serviceSNPChromosome3 = (ServiceSNPChromosome03) applicationContext.getBean(ServiceSNPChromosome03.class);
                             ServiceSNPChromosome04 serviceSNPChromosome4 = (ServiceSNPChromosome04) applicationContext.getBean(ServiceSNPChromosome04.class);
                             ServiceSNPChromosome05 serviceSNPChromosome5 = (ServiceSNPChromosome05) applicationContext.getBean(ServiceSNPChromosome05.class);
@@ -271,6 +276,10 @@ public class InsertSNPChromosome {
                 	     		if ( snpchromosome.isSearchChromosome1() ){
                 	     			SNPChromosome01 snpchromosome1 = snpchromosome.convertTo1();
                 	     			snpchromosome1List.add(snpchromosome1);
+                	     		}
+                	     		if ( snpchromosome.isSearchChromosome2() ){
+                	     			SNPChromosome02 snpchromosome2 = snpchromosome.convertTo2();
+                	     			snpchromosome2List.add(snpchromosome2);
                 	     		}
                 	     		if ( snpchromosome.isSearchChromosome3() ){
                 	     			SNPChromosome03 snpchromosome3 = snpchromosome.convertTo3();
@@ -399,6 +408,7 @@ public class InsertSNPChromosome {
                 	     	}
                 	     	
                 	     	snpchromosome1Total = snpchromosome1Total + snpchromosome1List.size();
+                	     	snpchromosome2Total = snpchromosome2Total + snpchromosome2List.size();
                 	     	snpchromosome3Total = snpchromosome3Total + snpchromosome3List.size();
                 	     	snpchromosome4Total = snpchromosome4Total + snpchromosome4List.size();
                 	     	snpchromosome5Total = snpchromosome5Total + snpchromosome5List.size();
@@ -432,6 +442,7 @@ public class InsertSNPChromosome {
                 	     	snpchromosomeLGE64Total = snpchromosomeLGE64Total + snpchromosomeLGE64List.size();
 
                 	     	serviceSNPChromosome1.bulkSave(intBatchSize, snpchromosome1List);
+                	     	serviceSNPChromosome2.bulkSave(intBatchSize, snpchromosome2List);
                 	     	serviceSNPChromosome3.bulkSave(intBatchSize, snpchromosome3List);
                 	     	serviceSNPChromosome4.bulkSave(intBatchSize, snpchromosome4List);
                 	     	serviceSNPChromosome5.bulkSave(intBatchSize, snpchromosome5List);
@@ -467,6 +478,7 @@ public class InsertSNPChromosome {
             		}
             		
             		System.out.println(StringUtility.pad(snpchromosome1Total, 8, PAD_CHAR) + " Records inserted into SNP_CHROMOSOME_1");
+            		System.out.println(StringUtility.pad(snpchromosome2Total, 8, PAD_CHAR) + " Records inserted into SNP_CHROMOSOME_2");
             		System.out.println(StringUtility.pad(snpchromosome3Total, 8, PAD_CHAR) + " Records inserted into SNP_CHROMOSOME_3");
             		System.out.println(StringUtility.pad(snpchromosome4Total, 8, PAD_CHAR) + " Records inserted into SNP_CHROMOSOME_4");
             		System.out.println(StringUtility.pad(snpchromosome5Total, 8, PAD_CHAR) + " Records inserted into SNP_CHROMOSOME_5");

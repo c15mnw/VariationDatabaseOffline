@@ -26,6 +26,12 @@ public final class ConvertFiletoUpdateProveanDataList {
 		try {
 		
 	     	int error = 0;
+	     	int good = 0;
+	     	int total = 0;
+
+            File errorFile = new File("/Users/mwicks23/Desktop/Provean/error_provean_conversion.txt");
+
+            List<String> errorRecords = new ArrayList<String>();
 
 	        // Format InputStream for CSV.
 	        InputStream csvInput = FileUtil.readStream(file);
@@ -47,7 +53,16 @@ public final class ConvertFiletoUpdateProveanDataList {
 	            
 	            DTOProveanData dtoProveanData = new DTOProveanData();
 	            
-	         	while (iteratorColumn.hasNext()) {
+    			dtoProveanData.setSnpId("");
+    			dtoProveanData.setEnsemblGene("");
+    			dtoProveanData.setEnsemblTranscript("");
+    			dtoProveanData.setEnsemblAnnotation("");
+    			dtoProveanData.setAminoAcidSubs("");
+    			dtoProveanData.setScoreProvean("");
+    			dtoProveanData.setProteinAlignNumber("");
+    			dtoProveanData.setTotalAlignSequenceNumber("");
+
+    			while (iteratorColumn.hasNext()) {
 	        		
 	        		String column = iteratorColumn.next();
 
@@ -79,20 +94,37 @@ public final class ConvertFiletoUpdateProveanDataList {
 	        		i++;
 	         	}
 	         	
-		     	
+	         	total++;
+
 	         	if ( dtoProveanData.isThisAValidProveanData() ) {
 	         		
+	         		good++;
 	         		outputProveanDataList.add( dtoProveanData.convertToProveanData() );
 	         	}
 	         	else {
 	         		
 	         		error++;
+	         		
+	         		String errorRecord = "INVALID PROVEAN DATA!\t" + dtoProveanData.getSnpId() + "\t" +
+	    	    			dtoProveanData.getEnsemblGene() + "\t" +
+	    	    			dtoProveanData.getEnsemblTranscript() + "\t" +
+	    	    			dtoProveanData.getEnsemblAnnotation() + "\t" +
+	    	    			dtoProveanData.getAminoAcidSubs() + "\t" +
+	    	    			dtoProveanData.getScoreProvean() + "\t" +
+	    	    			dtoProveanData.getProteinAlignNumber() + "\t" +
+	    	    			dtoProveanData.getTotalAlignSequenceNumber();
+	         		
+     				errorRecords.add(errorRecord);
+
 	         		//System.out.println("Error No." + error + " : " + dtoProveanData.toString());
 	         	}
 	     	}
 	     	
-     		System.out.println(StringUtility.pad(error, 8, PAD_CHAR) + " Error Records IGNORED - CSV File!");
-		
+    		FileUtil.write(errorFile, errorRecords);
+
+     		System.out.println(StringUtility.pad(total, 8, PAD_CHAR) + " Total Records in CSV File!");
+     		System.out.println(StringUtility.pad(good, 8, PAD_CHAR) + " Good Records in CSV File!");
+     		System.out.println(StringUtility.pad(error, 8, PAD_CHAR) + " Error Records IGNORED from CSV File!");
 		}
 		catch (Exception e) {
 			

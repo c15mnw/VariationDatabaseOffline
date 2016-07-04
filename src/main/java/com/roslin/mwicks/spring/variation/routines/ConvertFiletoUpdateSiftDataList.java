@@ -10,7 +10,9 @@ import java.util.List;
 import com.roslin.mwicks.utility.CsvUtil;
 import com.roslin.mwicks.utility.FileUtil;
 import com.roslin.mwicks.utility.StringUtility;
+
 import com.roslin.mwicks.spring.variation.dto.offline.DTOSiftData;
+
 import com.roslin.mwicks.spring.variation.model.other.SiftData;
 
 
@@ -26,6 +28,12 @@ public final class ConvertFiletoUpdateSiftDataList {
 		try {
 		
 	     	int error = 0;
+	     	int good = 0;
+	     	int total = 0;
+
+            File errorFile = new File("/Users/mwicks23/Desktop/Sift/error_sift_conversion.txt");
+
+            List<String> errorRecords = new ArrayList<String>();
 
 	        // Format InputStream for CSV.
 	        InputStream csvInput = FileUtil.readStream(file);
@@ -46,6 +54,17 @@ public final class ConvertFiletoUpdateSiftDataList {
 	            int i = 1;
 	            
 	            DTOSiftData dtoSiftData = new DTOSiftData();
+	            
+    			dtoSiftData.setSnpId("");
+    			dtoSiftData.setEnsemblGene("");
+    			dtoSiftData.setEnsemblTranscript("");
+    			dtoSiftData.setEnsemblAnnotation("");
+    			dtoSiftData.setAminoAcidSubs("");
+    			dtoSiftData.setPredictionCategory("");
+    			dtoSiftData.setScoreSift("");
+    			dtoSiftData.setScoreConservation("");
+    			dtoSiftData.setProteinAlignNumber("");
+    			dtoSiftData.setTotalAlignSequenceNumber("");
 	            
 	         	while (iteratorColumn.hasNext()) {
 	        		
@@ -85,21 +104,42 @@ public final class ConvertFiletoUpdateSiftDataList {
 	        		i++;
 	         	}
 	         	
+	         	total++;
 		     	
 	         	if ( dtoSiftData.isThisAValidSiftData() ) {
+	         		
+	         		good++;
 	         		
 	         		outputSiftDataList.add( dtoSiftData.convertToSiftData() );
 	         	}
 	         	else {
 	         		
 	         		error++;
+	         		
+	         		String errorRecord = "INVALID SIFT DATA!\t" + 
+	            			dtoSiftData.getSnpId() + "\t" +
+	            			dtoSiftData.getEnsemblGene() + "\t" +
+	            			dtoSiftData.getEnsemblTranscript() + "\t" +
+	            			dtoSiftData.getEnsemblAnnotation() + "\t" +
+	            			dtoSiftData.getAminoAcidSubs() + "\t" +
+	            			dtoSiftData.getPredictionCategory() + "\t" +
+	            			dtoSiftData.getScoreSift() + "\t" +
+	            			dtoSiftData.getScoreConservation() + "\t" +
+	            			dtoSiftData.getProteinAlignNumber() + "\t" +
+	            			dtoSiftData.getTotalAlignSequenceNumber();
+
+     				errorRecords.add(errorRecord);
+
 	         		//System.out.println("Error No." + error + " : " + dtoSiftData.toString());
 	         	}
 
 	     	}
 	     	
-     		System.out.println(StringUtility.pad(error, 8, PAD_CHAR) + " Error Records IGNORED - CSV File!");
-		
+    		FileUtil.write(errorFile, errorRecords);
+
+    		System.out.println(StringUtility.pad(total, 8, PAD_CHAR) + " Total Records in CSV File!");
+     		System.out.println(StringUtility.pad(good, 8, PAD_CHAR) + " Good Records in CSV File!");
+     		System.out.println(StringUtility.pad(error, 8, PAD_CHAR) + " Error Records IGNORED from CSV File!");
 		}
 		catch (Exception e) {
 			
