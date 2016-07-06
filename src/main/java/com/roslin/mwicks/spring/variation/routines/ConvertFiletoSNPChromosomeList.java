@@ -26,7 +26,7 @@ public final class ConvertFiletoSNPChromosomeList {
 	protected static final String STRING_OUTPUT_REFERENCE = "Ref.";
 	
 
-	public static List<SNPChromosome> run ( File file ) throws Exception {
+	public static List<SNPChromosome> run ( File file, int startRecordCount ) throws Exception {
 
         // Create List of SNPChromosomes
         List<SNPChromosome> outputsnpchromosomeList = new ArrayList<SNPChromosome>();
@@ -34,6 +34,8 @@ public final class ConvertFiletoSNPChromosomeList {
 		try {
 
 	     	int error = 0;
+
+	     	long recordCount = startRecordCount + 1;
 
 	        // Format InputStream for CSV.
 	        InputStream csvInput = FileUtil.readStream(file);
@@ -55,7 +57,11 @@ public final class ConvertFiletoSNPChromosomeList {
 	            
 	            DTOSNPChromosome dtosnpchromosome = new DTOSNPChromosome();
 	            
-	         	while (iteratorColumn.hasNext()) {
+        	    dtosnpchromosome.setOid( recordCount );
+
+        	    recordCount++;
+        	    
+        	    while (iteratorColumn.hasNext()) {
 	        		
 	        		String column = iteratorColumn.next();
 	        		
@@ -269,7 +275,8 @@ public final class ConvertFiletoSNPChromosomeList {
 	         	if ( dtosnpchromosome.isThisAValidSNPChromosome() ) {
 	         		
 	         		//System.out.println("dtosnpchromosome.toString() : " + dtosnpchromosome.toString());
-		         	outputsnpchromosomeList.add(dtosnpchromosome.convertToSNPChromosome());
+		         	
+	         		outputsnpchromosomeList.add(dtosnpchromosome.convertToSNPChromosome());
 	         	}
 	         	else {
 	         		

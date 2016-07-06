@@ -17,77 +17,13 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
 import com.roslin.mwicks.spring.variation.config.MyOfflineApplicationContext;
 
-import com.roslin.mwicks.spring.variation.model.other.RatioData;
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
 
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome01;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome02;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome03;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome04;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome05;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome06;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome07;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome08;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome09;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome10;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome11;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome12;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome13;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome14;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome15;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome16;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome17;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome18;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome19;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome20;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome21;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome22;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome23;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome24;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome25;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome26;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome27;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome28;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome32;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeLGE22C19W28_E50C23;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeLGE64;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeW;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeZ;
+import com.roslin.mwicks.spring.variation.model.other.RatioData;
 
 import com.roslin.mwicks.spring.variation.routines.ConvertFiletoUpdateRatioDataList;
 
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome01;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome02;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome03;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome04;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome05;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome06;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome07;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome08;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome09;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome10;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome11;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome12;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome13;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome14;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome15;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome16;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome17;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome18;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome19;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome20;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome21;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome22;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome23;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome24;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome25;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome26;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome27;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome28;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome32;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosomeW;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosomeZ;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosomeLGE64;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosomeLGE22C19W28_E50C23;
+import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome;
 
 import com.roslin.mwicks.utility.FileUtil;
 import com.roslin.mwicks.utility.StringUtility;
@@ -135,39 +71,7 @@ public class UpdateRatioData {
             }
             else {
                 
-                ServiceSNPChromosome01 serviceSNPChromosome01 = (ServiceSNPChromosome01) applicationContext.getBean(ServiceSNPChromosome01.class);
-                ServiceSNPChromosome02 serviceSNPChromosome02 = (ServiceSNPChromosome02) applicationContext.getBean(ServiceSNPChromosome02.class);
-                ServiceSNPChromosome03 serviceSNPChromosome03 = (ServiceSNPChromosome03) applicationContext.getBean(ServiceSNPChromosome03.class);
-                ServiceSNPChromosome04 serviceSNPChromosome04 = (ServiceSNPChromosome04) applicationContext.getBean(ServiceSNPChromosome04.class);
-                ServiceSNPChromosome05 serviceSNPChromosome05 = (ServiceSNPChromosome05) applicationContext.getBean(ServiceSNPChromosome05.class);
-                ServiceSNPChromosome06 serviceSNPChromosome06 = (ServiceSNPChromosome06) applicationContext.getBean(ServiceSNPChromosome06.class);
-                ServiceSNPChromosome07 serviceSNPChromosome07 = (ServiceSNPChromosome07) applicationContext.getBean(ServiceSNPChromosome07.class);
-                ServiceSNPChromosome08 serviceSNPChromosome08 = (ServiceSNPChromosome08) applicationContext.getBean(ServiceSNPChromosome08.class);
-                ServiceSNPChromosome09 serviceSNPChromosome09 = (ServiceSNPChromosome09) applicationContext.getBean(ServiceSNPChromosome09.class);
-                ServiceSNPChromosome10 serviceSNPChromosome10 = (ServiceSNPChromosome10) applicationContext.getBean(ServiceSNPChromosome10.class);
-                ServiceSNPChromosome11 serviceSNPChromosome11 = (ServiceSNPChromosome11) applicationContext.getBean(ServiceSNPChromosome11.class);
-                ServiceSNPChromosome12 serviceSNPChromosome12 = (ServiceSNPChromosome12) applicationContext.getBean(ServiceSNPChromosome12.class);
-                ServiceSNPChromosome13 serviceSNPChromosome13 = (ServiceSNPChromosome13) applicationContext.getBean(ServiceSNPChromosome13.class);
-                ServiceSNPChromosome14 serviceSNPChromosome14 = (ServiceSNPChromosome14) applicationContext.getBean(ServiceSNPChromosome14.class);
-                ServiceSNPChromosome15 serviceSNPChromosome15 = (ServiceSNPChromosome15) applicationContext.getBean(ServiceSNPChromosome15.class);
-                ServiceSNPChromosome16 serviceSNPChromosome16 = (ServiceSNPChromosome16) applicationContext.getBean(ServiceSNPChromosome16.class);
-                ServiceSNPChromosome17 serviceSNPChromosome17 = (ServiceSNPChromosome17) applicationContext.getBean(ServiceSNPChromosome17.class);
-                ServiceSNPChromosome18 serviceSNPChromosome18 = (ServiceSNPChromosome18) applicationContext.getBean(ServiceSNPChromosome18.class);
-                ServiceSNPChromosome19 serviceSNPChromosome19 = (ServiceSNPChromosome19) applicationContext.getBean(ServiceSNPChromosome19.class);
-                ServiceSNPChromosome20 serviceSNPChromosome20 = (ServiceSNPChromosome20) applicationContext.getBean(ServiceSNPChromosome20.class);
-                ServiceSNPChromosome21 serviceSNPChromosome21 = (ServiceSNPChromosome21) applicationContext.getBean(ServiceSNPChromosome21.class);
-                ServiceSNPChromosome22 serviceSNPChromosome22 = (ServiceSNPChromosome22) applicationContext.getBean(ServiceSNPChromosome22.class);
-                ServiceSNPChromosome23 serviceSNPChromosome23 = (ServiceSNPChromosome23) applicationContext.getBean(ServiceSNPChromosome23.class);
-                ServiceSNPChromosome24 serviceSNPChromosome24 = (ServiceSNPChromosome24) applicationContext.getBean(ServiceSNPChromosome24.class);
-                ServiceSNPChromosome25 serviceSNPChromosome25 = (ServiceSNPChromosome25) applicationContext.getBean(ServiceSNPChromosome25.class);
-                ServiceSNPChromosome26 serviceSNPChromosome26 = (ServiceSNPChromosome26) applicationContext.getBean(ServiceSNPChromosome26.class);
-                ServiceSNPChromosome27 serviceSNPChromosome27 = (ServiceSNPChromosome27) applicationContext.getBean(ServiceSNPChromosome27.class);
-                ServiceSNPChromosome28 serviceSNPChromosome28 = (ServiceSNPChromosome28) applicationContext.getBean(ServiceSNPChromosome28.class);
-                ServiceSNPChromosome32 serviceSNPChromosome32 = (ServiceSNPChromosome32) applicationContext.getBean(ServiceSNPChromosome32.class);
-                ServiceSNPChromosomeW serviceSNPChromosomeW = (ServiceSNPChromosomeW) applicationContext.getBean(ServiceSNPChromosomeW.class);
-                ServiceSNPChromosomeZ serviceSNPChromosomeZ = (ServiceSNPChromosomeZ) applicationContext.getBean(ServiceSNPChromosomeZ.class);
-                ServiceSNPChromosomeLGE64 serviceSNPChromosomeLGE64 = (ServiceSNPChromosomeLGE64) applicationContext.getBean(ServiceSNPChromosomeLGE64.class);
-                ServiceSNPChromosomeLGE22C19W28_E50C23 serviceSNPChromosomeLGE22C19W28_E50C23 = (ServiceSNPChromosomeLGE22C19W28_E50C23) applicationContext.getBean(ServiceSNPChromosomeLGE22C19W28_E50C23.class);
+                ServiceSNPChromosome serviceSNPChromosome = (ServiceSNPChromosome) applicationContext.getBean(ServiceSNPChromosome.class);
                
                 File errorFile = new File("/Users/mwicks23/Desktop/Ratio/error_ratio.txt");
 
@@ -260,9 +164,9 @@ public class UpdateRatioData {
                 	     			
                     	     		if ( ratiodata.isChromosome1() ) {
                     	     			
-                    	                List<SNPChromosome01> snpchromosome1List = new ArrayList<SNPChromosome01>();
+                    	                List<SNPChromosome> snpchromosome1List = new ArrayList<SNPChromosome>();
                     	     			
-                    	     			snpchromosome1List = serviceSNPChromosome01.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome1List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome1List.isEmpty() ) {
                     	     				
@@ -297,11 +201,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome01> iteratorSNPChromosome01 = snpchromosome1List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome1List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome01.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome01 snpchromosome = iteratorSNPChromosome01.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
                                     	     		
                             	     				if ( ratiodata.isStrain7() ) {
                                 	     				snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -344,7 +248,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome01.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount01++;
                                     	     	}
@@ -354,9 +258,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome2() ) {
                     	     			
-                    	                List<SNPChromosome02> snpchromosome2List = new ArrayList<SNPChromosome02>();
+                    	                List<SNPChromosome> snpchromosome2List = new ArrayList<SNPChromosome>();
                     	     			
-                    	     			snpchromosome2List = serviceSNPChromosome02.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome2List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome2List.isEmpty() ) {
                     	     				
@@ -392,11 +296,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome02> iteratorSNPChromosome02 = snpchromosome2List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome2List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome02.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome02 snpchromosome = iteratorSNPChromosome02.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
                                     	     		
                             	     				if ( ratiodata.isStrain7() ) {
                                 	     				snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -439,7 +343,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome02.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount02++;
                                     	     	}
@@ -449,9 +353,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome3() ) {
 
-                    	                List<SNPChromosome03> snpchromosome3List = new ArrayList<SNPChromosome03>();
+                    	                List<SNPChromosome> snpchromosome3List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome3List = serviceSNPChromosome03.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome3List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome3List.isEmpty() ) {
                     	     				
@@ -487,11 +391,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome03> iteratorSNPChromosome03 = snpchromosome3List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome3List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome03.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome03 snpchromosome = iteratorSNPChromosome03.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -534,7 +438,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome03.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
 
                                     	     		intSNPChromosomeCount03++;
                                     	        }
@@ -544,9 +448,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome4() ) {
                     	     			
-                    	                List<SNPChromosome04> snpchromosome4List = new ArrayList<SNPChromosome04>();
+                    	                List<SNPChromosome> snpchromosome4List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome4List = serviceSNPChromosome04.findBySnpId(ratiodata.getSnpId());
+                    	                snpchromosome4List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	                
                     	     			if ( snpchromosome4List.isEmpty() ) {
                     	     				
@@ -582,11 +486,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome04> iteratorSNPChromosome04 = snpchromosome4List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome4List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome04.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome04 snpchromosome = iteratorSNPChromosome04.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -629,7 +533,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome04.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount04++;
                                     	     	}
@@ -639,9 +543,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome5() ) {
                     	     			
-                    	                List<SNPChromosome05> snpchromosome5List = new ArrayList<SNPChromosome05>();
+                    	                List<SNPChromosome> snpchromosome5List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome5List = serviceSNPChromosome05.findBySnpId(ratiodata.getSnpId());
+                    	                snpchromosome5List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	                
                     	     			if ( snpchromosome5List.isEmpty() ) {
                     	     				
@@ -677,11 +581,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome05> iteratorSNPChromosome05 = snpchromosome5List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome5List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome05.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome05 snpchromosome = iteratorSNPChromosome05.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -724,7 +628,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome05.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount05++;
                                     	     	}
@@ -734,9 +638,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome6() ) {
                     	     			
-                    	                List<SNPChromosome06> snpchromosome6List = new ArrayList<SNPChromosome06>();
+                    	                List<SNPChromosome> snpchromosome6List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome6List = serviceSNPChromosome06.findBySnpId(ratiodata.getSnpId());
+                    	                snpchromosome6List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	                
                     	     			if ( snpchromosome6List.isEmpty() ) {
                     	     				
@@ -772,11 +676,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome06> iteratorSNPChromosome06 = snpchromosome6List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome6List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome06.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome06 snpchromosome = iteratorSNPChromosome06.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -819,7 +723,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome06.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount06++;
                                     	     	}
@@ -829,9 +733,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome7() ) {
                     	     			
-                    	                List<SNPChromosome07> snpchromosome7List = new ArrayList<SNPChromosome07>();
+                    	                List<SNPChromosome> snpchromosome7List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome7List = serviceSNPChromosome07.findBySnpId(ratiodata.getSnpId());
+                    	                snpchromosome7List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	                
                     	     			if ( snpchromosome7List.isEmpty() ) {
                     	     				
@@ -867,11 +771,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome07> iteratorSNPChromosome07 = snpchromosome7List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome7List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome07.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome07 snpchromosome = iteratorSNPChromosome07.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -914,7 +818,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome07.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount07++;
                                     	     	}
@@ -924,9 +828,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome8() ) {
 
-                    	                List<SNPChromosome08> snpchromosome8List = new ArrayList<SNPChromosome08>();
+                    	                List<SNPChromosome> snpchromosome8List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome8List = serviceSNPChromosome08.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome8List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome8List.isEmpty() ) {
                     	     				
@@ -962,11 +866,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome08> iteratorSNPChromosome08 = snpchromosome8List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome8List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome08.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome08 snpchromosome = iteratorSNPChromosome08.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -1009,7 +913,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome08.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount08++;
                                     	     	}
@@ -1019,9 +923,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome9() ) {
 
-                    	                List<SNPChromosome09> snpchromosome9List = new ArrayList<SNPChromosome09>();
+                    	                List<SNPChromosome> snpchromosome9List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome9List = serviceSNPChromosome09.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome9List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome9List.isEmpty() ) {
                     	     				
@@ -1057,11 +961,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome09> iteratorSNPChromosome09 = snpchromosome9List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome9List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome09.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome09 snpchromosome = iteratorSNPChromosome09.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -1104,7 +1008,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome09.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount09++;
                                     	     	}
@@ -1114,9 +1018,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome10() ) {
 
-                    	                List<SNPChromosome10> snpchromosome10List = new ArrayList<SNPChromosome10>();
+                    	                List<SNPChromosome> snpchromosome10List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome10List = serviceSNPChromosome10.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome10List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome10List.isEmpty() ) {
                     	     				
@@ -1152,11 +1056,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome10> iteratorSNPChromosome10 = snpchromosome10List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome10List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome10.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome10 snpchromosome = iteratorSNPChromosome10.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -1199,7 +1103,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome10.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount10++;
                                     	     	}
@@ -1209,9 +1113,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome11() ) {
                     	     			
-                    	                List<SNPChromosome11> snpchromosome11List = new ArrayList<SNPChromosome11>();
+                    	                List<SNPChromosome> snpchromosome11List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome11List = serviceSNPChromosome11.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome11List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome11List.isEmpty() ) {
                     	     				
@@ -1247,11 +1151,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome11> iteratorSNPChromosome11 = snpchromosome11List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome11List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome11.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome11 snpchromosome = iteratorSNPChromosome11.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -1294,7 +1198,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome11.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount11++;
                                     	     	}
@@ -1304,9 +1208,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome12() ) {
                     	     			
-                    	                List<SNPChromosome12> snpchromosome12List = new ArrayList<SNPChromosome12>();
+                    	                List<SNPChromosome> snpchromosome12List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome12List = serviceSNPChromosome12.findBySnpId(ratiodata.getSnpId());
+                    	                snpchromosome12List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	                
                     	     			if ( snpchromosome12List.isEmpty() ) {
                     	     				
@@ -1342,11 +1246,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome12> iteratorSNPChromosome12 = snpchromosome12List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome12List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome12.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome12 snpchromosome = iteratorSNPChromosome12.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -1389,7 +1293,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome12.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount12++;
                                     	     	}
@@ -1399,9 +1303,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome13() ) {
                     	     			
-                    	                List<SNPChromosome13> snpchromosome13List = new ArrayList<SNPChromosome13>();
+                    	                List<SNPChromosome> snpchromosome13List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome13List = serviceSNPChromosome13.findBySnpId(ratiodata.getSnpId());
+                    	                snpchromosome13List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
 
                     	     			if ( snpchromosome13List.isEmpty() ) {
                     	     				
@@ -1437,11 +1341,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                            	     			Iterator<SNPChromosome13> iteratorSNPChromosome13 = snpchromosome13List.iterator();
+                            	     			Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome13List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome13.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome13 snpchromosome = iteratorSNPChromosome13.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -1484,7 +1388,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome13.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount13++;
                                     	     	}
@@ -1494,9 +1398,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome14() ) {
                     	     			
-                    	                List<SNPChromosome14> snpchromosome14List = new ArrayList<SNPChromosome14>();
+                    	                List<SNPChromosome> snpchromosome14List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome14List = serviceSNPChromosome14.findBySnpId(ratiodata.getSnpId());
+                    	                snpchromosome14List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	                
                     	     			if ( snpchromosome14List.isEmpty() ) {
                     	     				
@@ -1532,11 +1436,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome14> iteratorSNPChromosome14 = snpchromosome14List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome14List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome14.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome14 snpchromosome = iteratorSNPChromosome14.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -1579,7 +1483,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome14.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount14++;
                                     	     	}
@@ -1589,9 +1493,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome15() ) {
                     	     			
-                    	                List<SNPChromosome15> snpchromosome15List = new ArrayList<SNPChromosome15>();
+                    	                List<SNPChromosome> snpchromosome15List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome15List = serviceSNPChromosome15.findBySnpId(ratiodata.getSnpId());
+                    	                snpchromosome15List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	                
                     	     			if ( snpchromosome15List.isEmpty() ) {
                     	     				
@@ -1627,11 +1531,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome15> iteratorSNPChromosome15 = snpchromosome15List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome15List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome15.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome15 snpchromosome = iteratorSNPChromosome15.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -1674,7 +1578,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome15.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount15++;
                                     	     	}
@@ -1684,9 +1588,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome16() ) {
 
-                    	                List<SNPChromosome16> snpchromosome16List = new ArrayList<SNPChromosome16>();
+                    	                List<SNPChromosome> snpchromosome16List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome16List = serviceSNPChromosome16.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome16List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome16List.isEmpty() ) {
                     	     				
@@ -1722,11 +1626,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome16> iteratorSNPChromosome16 = snpchromosome16List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome16List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome16.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome16 snpchromosome = iteratorSNPChromosome16.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -1769,7 +1673,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome16.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount16++;
                                     	     	}
@@ -1779,9 +1683,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome17() ) {
                     	     			
-                    	                List<SNPChromosome17> snpchromosome17List = new ArrayList<SNPChromosome17>();
+                    	                List<SNPChromosome> snpchromosome17List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome17List = serviceSNPChromosome17.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome17List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome17List.isEmpty() ) {
                     	     				
@@ -1817,11 +1721,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome17> iteratorSNPChromosome17 = snpchromosome17List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome17List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome17.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome17 snpchromosome = iteratorSNPChromosome17.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -1864,7 +1768,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome17.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount17++;
                                     	     	}
@@ -1874,9 +1778,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome18() ) {
 
-                    	                List<SNPChromosome18> snpchromosome18List = new ArrayList<SNPChromosome18>();
+                    	                List<SNPChromosome> snpchromosome18List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome18List = serviceSNPChromosome18.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome18List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome18List.isEmpty() ) {
                     	     				
@@ -1912,11 +1816,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome18> iteratorSNPChromosome18 = snpchromosome18List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome18List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome18.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome18 snpchromosome = iteratorSNPChromosome18.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -1959,7 +1863,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome18.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount18++;
                                     	     	}
@@ -1969,9 +1873,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome19() ) {
 
-                    	                List<SNPChromosome19> snpchromosome19List = new ArrayList<SNPChromosome19>();
+                    	                List<SNPChromosome> snpchromosome19List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome19List = serviceSNPChromosome19.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome19List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome19List.isEmpty() ) {
                     	     				
@@ -2007,11 +1911,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome19> iteratorSNPChromosome19 = snpchromosome19List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome19List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome19.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome19 snpchromosome = iteratorSNPChromosome19.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -2054,7 +1958,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome19.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount19++;
                                     	     	}
@@ -2064,9 +1968,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome20() ) {
                     	     			
-                    	                List<SNPChromosome20> snpchromosome20List = new ArrayList<SNPChromosome20>();
+                    	                List<SNPChromosome> snpchromosome20List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome20List = serviceSNPChromosome20.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome20List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome20List.isEmpty() ) {
                     	     				
@@ -2102,11 +2006,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome20> iteratorSNPChromosome20 = snpchromosome20List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome20List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome20.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome20 snpchromosome = iteratorSNPChromosome20.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -2149,7 +2053,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome20.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount20++;
                                     	     	}
@@ -2159,9 +2063,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome21() ) {
 
-                    	                List<SNPChromosome21> snpchromosome21List = new ArrayList<SNPChromosome21>();
+                    	                List<SNPChromosome> snpchromosome21List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome21List = serviceSNPChromosome21.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome21List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome21List.isEmpty() ) {
                     	     				
@@ -2197,11 +2101,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome21> iteratorSNPChromosome21 = snpchromosome21List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome21List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome21.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome21 snpchromosome = iteratorSNPChromosome21.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -2244,7 +2148,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome21.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount21++;
                                     	        }
@@ -2254,9 +2158,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome22() ) {
 
-                    	                List<SNPChromosome22> snpchromosome22List = new ArrayList<SNPChromosome22>();
+                    	                List<SNPChromosome> snpchromosome22List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome22List = serviceSNPChromosome22.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome22List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome22List.isEmpty() ) {
                     	     				
@@ -2292,11 +2196,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome22> iteratorSNPChromosome22 = snpchromosome22List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome22List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome22.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome22 snpchromosome = iteratorSNPChromosome22.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -2339,7 +2243,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome22.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount22++;
                                     	     	}
@@ -2349,9 +2253,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome23() ) {
                     	     			
-                    	                List<SNPChromosome23> snpchromosome23List = new ArrayList<SNPChromosome23>();
+                    	                List<SNPChromosome> snpchromosome23List = new ArrayList<SNPChromosome>();
                     	                
-                    	                snpchromosome23List = serviceSNPChromosome23.findBySnpId(ratiodata.getSnpId());
+                    	                snpchromosome23List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	                
                     	     			if ( snpchromosome23List.isEmpty() ) {
                     	     				
@@ -2387,11 +2291,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome23> iteratorSNPChromosome23 = snpchromosome23List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome23List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome23.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome23 snpchromosome = iteratorSNPChromosome23.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -2434,7 +2338,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome23.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount23++;
                                     	     	}
@@ -2444,9 +2348,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome24() ) {
                     	     			
-                    	     			List<SNPChromosome24> snpchromosome24List = new ArrayList<SNPChromosome24>();
+                    	     			List<SNPChromosome> snpchromosome24List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome24List = serviceSNPChromosome24.findBySnpId(ratiodata.getSnpId());
+                    	                snpchromosome24List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	                
                     	     			if ( snpchromosome24List.isEmpty() ) {
                     	     				
@@ -2482,11 +2386,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome24> iteratorSNPChromosome24 = snpchromosome24List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome24List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome24.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome24 snpchromosome = iteratorSNPChromosome24.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -2529,7 +2433,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome24.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount24++;
                                     	     	}
@@ -2539,9 +2443,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome25() ) {
                     	     			
-                    	                List<SNPChromosome25> snpchromosome25List = new ArrayList<SNPChromosome25>();
+                    	                List<SNPChromosome> snpchromosome25List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome25List = serviceSNPChromosome25.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome25List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome25List.isEmpty() ) {
                     	     				
@@ -2577,11 +2481,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome25> iteratorSNPChromosome25 = snpchromosome25List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome25List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome25.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome25 snpchromosome = iteratorSNPChromosome25.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -2624,7 +2528,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome25.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount25++;
                                     	     	}
@@ -2634,9 +2538,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome26() ) {
 
-                    	                List<SNPChromosome26> snpchromosome26List = new ArrayList<SNPChromosome26>();
+                    	                List<SNPChromosome> snpchromosome26List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome26List = serviceSNPChromosome26.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome26List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome26List.isEmpty() ) {
                     	     				
@@ -2672,11 +2576,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
                             	     			
-                                    	        Iterator<SNPChromosome26> iteratorSNPChromosome26 = snpchromosome26List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome26List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome26.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome26 snpchromosome = iteratorSNPChromosome26.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -2719,7 +2623,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome26.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount26++;
                                     	     	}
@@ -2729,9 +2633,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome27() ) {
                     	     			
-                    	                List<SNPChromosome27> snpchromosome27List = new ArrayList<SNPChromosome27>();
+                    	                List<SNPChromosome> snpchromosome27List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome27List = serviceSNPChromosome27.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome27List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome27List.isEmpty() ) {
                     	     				
@@ -2767,11 +2671,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome27> iteratorSNPChromosome27 = snpchromosome27List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome27List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome27.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome27 snpchromosome = iteratorSNPChromosome27.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -2814,7 +2718,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome27.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount27++;
                                     	     	}
@@ -2824,9 +2728,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome28() ) {
 
-                    	                List<SNPChromosome28> snpchromosome28List = new ArrayList<SNPChromosome28>();
+                    	                List<SNPChromosome> snpchromosome28List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome28List = serviceSNPChromosome28.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome28List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome28List.isEmpty() ) {
                     	     				
@@ -2862,11 +2766,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome28> iteratorSNPChromosome28 = snpchromosome28List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome28List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome28.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome28 snpchromosome = iteratorSNPChromosome28.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -2909,7 +2813,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome28.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount28++;
                                     	     	}
@@ -2919,9 +2823,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosome32() ) {
                     	     			
-                    	                List<SNPChromosome32> snpchromosome32List = new ArrayList<SNPChromosome32>();
+                    	                List<SNPChromosome> snpchromosome32List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome32List = serviceSNPChromosome32.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosome32List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosome32List.isEmpty() ) {
                     	     				
@@ -2957,11 +2861,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome32> iteratorSNPChromosome32 = snpchromosome32List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome32List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome32.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome32 snpchromosome = iteratorSNPChromosome32.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -3004,7 +2908,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosome32.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCount32++;
                                     	     	}
@@ -3014,9 +2918,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosomeLGE64() ) {
                     	     			
-                    	                List<SNPChromosomeLGE64> snpchromosomeLGE64List = new ArrayList<SNPChromosomeLGE64>();
+                    	                List<SNPChromosome> snpchromosomeLGE64List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosomeLGE64List = serviceSNPChromosomeLGE64.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosomeLGE64List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosomeLGE64List.isEmpty() ) {
                     	     				
@@ -3053,11 +2957,11 @@ public class UpdateRatioData {
                         	     			else {
                         	     				
 
-                                    	        Iterator<SNPChromosomeLGE64> iteratorSNPChromosomeLGE64 = snpchromosomeLGE64List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosomeLGE64List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosomeLGE64.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosomeLGE64 snpchromosome = iteratorSNPChromosomeLGE64.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -3100,7 +3004,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosomeLGE64.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCountLGE64++;
                                     	     	}
@@ -3110,9 +3014,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosomeLGE22C19W28_E50C23() ) {
                     	     			
-                    	                List<SNPChromosomeLGE22C19W28_E50C23> snpchromosomeLGE22C19W28_E50C23List = new ArrayList<SNPChromosomeLGE22C19W28_E50C23>();
+                    	                List<SNPChromosome> snpchromosomeLGE22C19W28_E50C23List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosomeLGE22C19W28_E50C23List = serviceSNPChromosomeLGE22C19W28_E50C23.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosomeLGE22C19W28_E50C23List = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosomeLGE22C19W28_E50C23List.isEmpty() ) {
                     	     				
@@ -3148,11 +3052,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
                         	     				
-                                    	        Iterator<SNPChromosomeLGE22C19W28_E50C23> iteratorSNPChromosomeLGE22C19W28_E50C23 = snpchromosomeLGE22C19W28_E50C23List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosomeLGE22C19W28_E50C23List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosomeLGE22C19W28_E50C23.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosomeLGE22C19W28_E50C23 snpchromosome = iteratorSNPChromosomeLGE22C19W28_E50C23.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -3195,7 +3099,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosomeLGE22C19W28_E50C23.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCountLGE22C19W28_E50C23++;
                                     	     	}
@@ -3205,9 +3109,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosomeW() ) {
                     	     			
-                    	                List<SNPChromosomeW> snpchromosomeWList = new ArrayList<SNPChromosomeW>();
+                    	                List<SNPChromosome> snpchromosomeWList = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosomeWList = serviceSNPChromosomeW.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosomeWList = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosomeWList.isEmpty() ) {
                     	     				
@@ -3243,11 +3147,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosomeW> iteratorSNPChromosomeW = snpchromosomeWList.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosomeWList.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosomeW.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosomeW snpchromosome = iteratorSNPChromosomeW.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
 
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -3290,7 +3194,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosomeW.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCountW++;
                                     	     	}                        	     			}
@@ -3299,9 +3203,9 @@ public class UpdateRatioData {
 
                     	     		if ( ratiodata.isChromosomeZ() ) {
                     	     			
-                    	                List<SNPChromosomeZ> snpchromosomeZList = new ArrayList<SNPChromosomeZ>();
+                    	                List<SNPChromosome> snpchromosomeZList = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosomeZList = serviceSNPChromosomeZ.findBySnpId(ratiodata.getSnpId());
+                    	     			snpchromosomeZList = serviceSNPChromosome.findBySnpId(ratiodata.getSnpId());
                     	     			
                     	     			if ( snpchromosomeZList.isEmpty() ) {
                     	     				
@@ -3337,11 +3241,11 @@ public class UpdateRatioData {
                         	     			}
                         	     			else {
                         	     				
-                                    	        Iterator<SNPChromosomeZ> iteratorSNPChromosomeZ = snpchromosomeZList.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosomeZList.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosomeZ.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosomeZ snpchromosome = iteratorSNPChromosomeZ.next();
+                                    	     		SNPChromosome snpchromosome = iteratorSNPChromosome.next();
                                     	     		
                                     	     		if ( ratiodata.isStrain7() ) {
                                     	     			snpchromosome.setStrain7AlleleRatio(ratiodata.getStrainAlleleRatio());
@@ -3384,7 +3288,7 @@ public class UpdateRatioData {
                                         	     		snpchromosome.setStrainCAlleleReferenceCount(ratiodata.getStrainAlleleReferenceCount());
                                     	     		}
 
-                                    	     		serviceSNPChromosomeZ.update(snpchromosome);
+                                    	     		serviceSNPChromosome.update(snpchromosome);
                                     	     		
                                     	     		intSNPChromosomeCountZ++;
                                     	     	}

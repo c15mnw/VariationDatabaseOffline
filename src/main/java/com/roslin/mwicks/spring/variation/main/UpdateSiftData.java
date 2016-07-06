@@ -18,76 +18,13 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
 import com.roslin.mwicks.spring.variation.config.MyOfflineApplicationContext;
 
+import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
+
 import com.roslin.mwicks.spring.variation.model.other.SiftData;
 
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome01;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome02;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome03;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome04;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome05;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome06;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome07;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome08;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome09;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome10;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome11;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome12;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome13;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome14;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome15;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome16;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome17;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome18;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome19;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome20;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome21;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome22;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome23;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome24;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome25;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome26;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome27;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome28;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome32;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeLGE22C19W28_E50C23;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeLGE64;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeW;
-import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosomeZ;
 import com.roslin.mwicks.spring.variation.routines.ConvertFiletoUpdateSiftDataList;
 
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome01;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome02;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome03;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome04;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome05;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome06;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome07;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome08;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome09;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome10;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome11;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome12;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome13;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome14;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome15;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome16;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome17;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome18;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome19;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome20;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome21;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome22;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome23;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome24;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome25;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome26;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome27;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome28;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome32;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosomeW;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosomeZ;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosomeLGE64;
-import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosomeLGE22C19W28_E50C23;
+import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome;
 
 import com.roslin.mwicks.utility.FileUtil;
 import com.roslin.mwicks.utility.ObjectConverter;
@@ -136,39 +73,7 @@ public class UpdateSiftData {
             }
             else {
                 
-                ServiceSNPChromosome01 serviceSNPChromosome01 = (ServiceSNPChromosome01) applicationContext.getBean(ServiceSNPChromosome01.class);
-                ServiceSNPChromosome02 serviceSNPChromosome02 = (ServiceSNPChromosome02) applicationContext.getBean(ServiceSNPChromosome02.class);
-                ServiceSNPChromosome03 serviceSNPChromosome03 = (ServiceSNPChromosome03) applicationContext.getBean(ServiceSNPChromosome03.class);
-                ServiceSNPChromosome04 serviceSNPChromosome04 = (ServiceSNPChromosome04) applicationContext.getBean(ServiceSNPChromosome04.class);
-                ServiceSNPChromosome05 serviceSNPChromosome05 = (ServiceSNPChromosome05) applicationContext.getBean(ServiceSNPChromosome05.class);
-                ServiceSNPChromosome06 serviceSNPChromosome06 = (ServiceSNPChromosome06) applicationContext.getBean(ServiceSNPChromosome06.class);
-                ServiceSNPChromosome07 serviceSNPChromosome07 = (ServiceSNPChromosome07) applicationContext.getBean(ServiceSNPChromosome07.class);
-                ServiceSNPChromosome08 serviceSNPChromosome08 = (ServiceSNPChromosome08) applicationContext.getBean(ServiceSNPChromosome08.class);
-                ServiceSNPChromosome09 serviceSNPChromosome09 = (ServiceSNPChromosome09) applicationContext.getBean(ServiceSNPChromosome09.class);
-                ServiceSNPChromosome10 serviceSNPChromosome10 = (ServiceSNPChromosome10) applicationContext.getBean(ServiceSNPChromosome10.class);
-                ServiceSNPChromosome11 serviceSNPChromosome11 = (ServiceSNPChromosome11) applicationContext.getBean(ServiceSNPChromosome11.class);
-                ServiceSNPChromosome12 serviceSNPChromosome12 = (ServiceSNPChromosome12) applicationContext.getBean(ServiceSNPChromosome12.class);
-                ServiceSNPChromosome13 serviceSNPChromosome13 = (ServiceSNPChromosome13) applicationContext.getBean(ServiceSNPChromosome13.class);
-                ServiceSNPChromosome14 serviceSNPChromosome14 = (ServiceSNPChromosome14) applicationContext.getBean(ServiceSNPChromosome14.class);
-                ServiceSNPChromosome15 serviceSNPChromosome15 = (ServiceSNPChromosome15) applicationContext.getBean(ServiceSNPChromosome15.class);
-                ServiceSNPChromosome16 serviceSNPChromosome16 = (ServiceSNPChromosome16) applicationContext.getBean(ServiceSNPChromosome16.class);
-                ServiceSNPChromosome17 serviceSNPChromosome17 = (ServiceSNPChromosome17) applicationContext.getBean(ServiceSNPChromosome17.class);
-                ServiceSNPChromosome18 serviceSNPChromosome18 = (ServiceSNPChromosome18) applicationContext.getBean(ServiceSNPChromosome18.class);
-                ServiceSNPChromosome19 serviceSNPChromosome19 = (ServiceSNPChromosome19) applicationContext.getBean(ServiceSNPChromosome19.class);
-                ServiceSNPChromosome20 serviceSNPChromosome20 = (ServiceSNPChromosome20) applicationContext.getBean(ServiceSNPChromosome20.class);
-                ServiceSNPChromosome21 serviceSNPChromosome21 = (ServiceSNPChromosome21) applicationContext.getBean(ServiceSNPChromosome21.class);
-                ServiceSNPChromosome22 serviceSNPChromosome22 = (ServiceSNPChromosome22) applicationContext.getBean(ServiceSNPChromosome22.class);
-                ServiceSNPChromosome23 serviceSNPChromosome23 = (ServiceSNPChromosome23) applicationContext.getBean(ServiceSNPChromosome23.class);
-                ServiceSNPChromosome24 serviceSNPChromosome24 = (ServiceSNPChromosome24) applicationContext.getBean(ServiceSNPChromosome24.class);
-                ServiceSNPChromosome25 serviceSNPChromosome25 = (ServiceSNPChromosome25) applicationContext.getBean(ServiceSNPChromosome25.class);
-                ServiceSNPChromosome26 serviceSNPChromosome26 = (ServiceSNPChromosome26) applicationContext.getBean(ServiceSNPChromosome26.class);
-                ServiceSNPChromosome27 serviceSNPChromosome27 = (ServiceSNPChromosome27) applicationContext.getBean(ServiceSNPChromosome27.class);
-                ServiceSNPChromosome28 serviceSNPChromosome28 = (ServiceSNPChromosome28) applicationContext.getBean(ServiceSNPChromosome28.class);
-                ServiceSNPChromosome32 serviceSNPChromosome32 = (ServiceSNPChromosome32) applicationContext.getBean(ServiceSNPChromosome32.class);
-                ServiceSNPChromosomeW serviceSNPChromosomeW = (ServiceSNPChromosomeW) applicationContext.getBean(ServiceSNPChromosomeW.class);
-                ServiceSNPChromosomeZ serviceSNPChromosomeZ = (ServiceSNPChromosomeZ) applicationContext.getBean(ServiceSNPChromosomeZ.class);
-                ServiceSNPChromosomeLGE64 serviceSNPChromosomeLGE64 = (ServiceSNPChromosomeLGE64) applicationContext.getBean(ServiceSNPChromosomeLGE64.class);
-                ServiceSNPChromosomeLGE22C19W28_E50C23 serviceSNPChromosomeLGE22C19W28_E50C23 = (ServiceSNPChromosomeLGE22C19W28_E50C23) applicationContext.getBean(ServiceSNPChromosomeLGE22C19W28_E50C23.class);
+                ServiceSNPChromosome serviceSNPChromosome = (ServiceSNPChromosome) applicationContext.getBean(ServiceSNPChromosome.class);
 
                 File errorFile = new File("/Users/mwicks23/Desktop/Sift/error_sift.txt");
 
@@ -265,9 +170,9 @@ public class UpdateSiftData {
                 	     			
                     	     		if ( siftdata.isChromosome1() ) {
                     	     			
-                    	                List<SNPChromosome01> snpchromosome1List = new ArrayList<SNPChromosome01>();
+                    	                List<SNPChromosome> snpchromosome1List = new ArrayList<SNPChromosome>();
                     	     			
-                    	     			snpchromosome1List = serviceSNPChromosome01.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome1List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome1List.isEmpty() ) {
                     	     				
@@ -311,11 +216,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome01> iteratorSNPChromosome01 = snpchromosome1List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome1List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome01.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome01 snpchromosome01 = iteratorSNPChromosome01.next();
+                                    	     		SNPChromosome snpchromosome01 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome01.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome01.setPredictionCategory(siftdata.getPredictionCategory());
@@ -324,7 +229,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome01.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome01.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome01.update(snpchromosome01);
+                                    	     		serviceSNPChromosome.update(snpchromosome01);
                                     	     		
                                     	     		intSNPChromosomeCount01++;
                                     	     	}
@@ -334,9 +239,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome2() ) {
                     	     			
-                    	                List<SNPChromosome02> snpchromosome2List = new ArrayList<SNPChromosome02>();
+                    	                List<SNPChromosome> snpchromosome2List = new ArrayList<SNPChromosome>();
                     	     			
-                    	     			snpchromosome2List = serviceSNPChromosome02.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome2List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome2List.isEmpty() ) {
                     	     				
@@ -380,11 +285,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome02> iteratorSNPChromosome02 = snpchromosome2List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome2List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome02.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome02 snpchromosome02 = iteratorSNPChromosome02.next();
+                                    	     		SNPChromosome snpchromosome02 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome02.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome02.setPredictionCategory(siftdata.getPredictionCategory());
@@ -393,7 +298,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome02.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome02.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome02.update(snpchromosome02);
+                                    	     		serviceSNPChromosome.update(snpchromosome02);
                                     	     		
                                     	     		intSNPChromosomeCount02++;
                                     	     	}
@@ -403,9 +308,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome3() ) {
 
-                    	                List<SNPChromosome03> snpchromosome3List = new ArrayList<SNPChromosome03>();
+                    	                List<SNPChromosome> snpchromosome3List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome3List = serviceSNPChromosome03.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome3List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome3List.isEmpty() ) {
                     	     				
@@ -449,11 +354,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome03> iteratorSNPChromosome03 = snpchromosome3List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome3List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome03.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome03 snpchromosome03 = iteratorSNPChromosome03.next();
+                                    	     		SNPChromosome snpchromosome03 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome03.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome03.setPredictionCategory(siftdata.getPredictionCategory());
@@ -462,7 +367,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome03.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome03.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome03.update(snpchromosome03);
+                                    	     		serviceSNPChromosome.update(snpchromosome03);
 
                                     	     		intSNPChromosomeCount03++;
                                     	        }
@@ -472,9 +377,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome4() ) {
                     	     			
-                    	                List<SNPChromosome04> snpchromosome4List = new ArrayList<SNPChromosome04>();
+                    	                List<SNPChromosome> snpchromosome4List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome4List = serviceSNPChromosome04.findBySnpId(siftdata.getSnpId());
+                    	                snpchromosome4List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	                
                     	     			if ( snpchromosome4List.isEmpty() ) {
                     	     				
@@ -518,11 +423,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome04> iteratorSNPChromosome04 = snpchromosome4List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome4List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome04.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome04 snpchromosome04 = iteratorSNPChromosome04.next();
+                                    	     		SNPChromosome snpchromosome04 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome04.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome04.setPredictionCategory(siftdata.getPredictionCategory());
@@ -531,7 +436,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome04.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome04.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome04.update(snpchromosome04);
+                                    	     		serviceSNPChromosome.update(snpchromosome04);
                                     	     		
                                     	     		intSNPChromosomeCount04++;
                                     	     	}
@@ -541,9 +446,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome5() ) {
                     	     			
-                    	                List<SNPChromosome05> snpchromosome5List = new ArrayList<SNPChromosome05>();
+                    	                List<SNPChromosome> snpchromosome5List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome5List = serviceSNPChromosome05.findBySnpId(siftdata.getSnpId());
+                    	                snpchromosome5List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	                
                     	     			if ( snpchromosome5List.isEmpty() ) {
                     	     				
@@ -587,11 +492,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome05> iteratorSNPChromosome05 = snpchromosome5List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome5List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome05.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome05 snpchromosome05 = iteratorSNPChromosome05.next();
+                                    	     		SNPChromosome snpchromosome05 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome05.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome05.setPredictionCategory(siftdata.getPredictionCategory());
@@ -600,7 +505,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome05.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome05.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome05.update(snpchromosome05);
+                                    	     		serviceSNPChromosome.update(snpchromosome05);
                                     	     		
                                     	     		intSNPChromosomeCount05++;
                                     	     	}
@@ -610,9 +515,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome6() ) {
                     	     			
-                    	                List<SNPChromosome06> snpchromosome6List = new ArrayList<SNPChromosome06>();
+                    	                List<SNPChromosome> snpchromosome6List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome6List = serviceSNPChromosome06.findBySnpId(siftdata.getSnpId());
+                    	                snpchromosome6List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	                
                     	     			if ( snpchromosome6List.isEmpty() ) {
                     	     				
@@ -656,11 +561,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome06> iteratorSNPChromosome06 = snpchromosome6List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome6List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome06.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome06 snpchromosome06 = iteratorSNPChromosome06.next();
+                                    	     		SNPChromosome snpchromosome06 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome06.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome06.setPredictionCategory(siftdata.getPredictionCategory());
@@ -669,7 +574,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome06.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome06.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome06.update(snpchromosome06);
+                                    	     		serviceSNPChromosome.update(snpchromosome06);
                                     	     		
                                     	     		intSNPChromosomeCount06++;
                                     	     	}
@@ -679,9 +584,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome7() ) {
                     	     			
-                    	                List<SNPChromosome07> snpchromosome7List = new ArrayList<SNPChromosome07>();
+                    	                List<SNPChromosome> snpchromosome7List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome7List = serviceSNPChromosome07.findBySnpId(siftdata.getSnpId());
+                    	                snpchromosome7List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	                
                     	     			if ( snpchromosome7List.isEmpty() ) {
                     	     				
@@ -725,11 +630,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome07> iteratorSNPChromosome07 = snpchromosome7List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome7List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome07.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome07 snpchromosome07 = iteratorSNPChromosome07.next();
+                                    	     		SNPChromosome snpchromosome07 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome07.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome07.setPredictionCategory(siftdata.getPredictionCategory());
@@ -738,7 +643,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome07.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome07.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome07.update(snpchromosome07);
+                                    	     		serviceSNPChromosome.update(snpchromosome07);
                                     	     		
                                     	     		intSNPChromosomeCount07++;
                                     	     	}
@@ -748,9 +653,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome8() ) {
 
-                    	                List<SNPChromosome08> snpchromosome8List = new ArrayList<SNPChromosome08>();
+                    	                List<SNPChromosome> snpchromosome8List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome8List = serviceSNPChromosome08.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome8List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome8List.isEmpty() ) {
                     	     				
@@ -794,11 +699,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome08> iteratorSNPChromosome08 = snpchromosome8List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome8List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome08.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome08 snpchromosome08 = iteratorSNPChromosome08.next();
+                                    	     		SNPChromosome snpchromosome08 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome08.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome08.setPredictionCategory(siftdata.getPredictionCategory());
@@ -807,7 +712,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome08.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome08.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome08.update(snpchromosome08);
+                                    	     		serviceSNPChromosome.update(snpchromosome08);
                                     	     		
                                     	     		intSNPChromosomeCount08++;
                                     	     	}
@@ -817,9 +722,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome9() ) {
 
-                    	                List<SNPChromosome09> snpchromosome9List = new ArrayList<SNPChromosome09>();
+                    	                List<SNPChromosome> snpchromosome9List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome9List = serviceSNPChromosome09.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome9List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome9List.isEmpty() ) {
                     	     				
@@ -863,11 +768,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome09> iteratorSNPChromosome09 = snpchromosome9List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome9List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome09.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome09 snpchromosome09 = iteratorSNPChromosome09.next();
+                                    	     		SNPChromosome snpchromosome09 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome09.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome09.setPredictionCategory(siftdata.getPredictionCategory());
@@ -876,7 +781,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome09.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome09.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome09.update(snpchromosome09);
+                                    	     		serviceSNPChromosome.update(snpchromosome09);
                                     	     		
                                     	     		intSNPChromosomeCount09++;
                                     	     	}
@@ -886,9 +791,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome10() ) {
 
-                    	                List<SNPChromosome10> snpchromosome10List = new ArrayList<SNPChromosome10>();
+                    	                List<SNPChromosome> snpchromosome10List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome10List = serviceSNPChromosome10.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome10List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome10List.isEmpty() ) {
                     	     				
@@ -932,11 +837,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome10> iteratorSNPChromosome10 = snpchromosome10List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome10List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome10.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome10 snpchromosome10 = iteratorSNPChromosome10.next();
+                                    	     		SNPChromosome snpchromosome10 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome10.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome10.setPredictionCategory(siftdata.getPredictionCategory());
@@ -945,7 +850,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome10.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome10.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome10.update(snpchromosome10);
+                                    	     		serviceSNPChromosome.update(snpchromosome10);
                                     	     		
                                     	     		intSNPChromosomeCount10++;
                                     	     	}
@@ -955,9 +860,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome11() ) {
                     	     			
-                    	                List<SNPChromosome11> snpchromosome11List = new ArrayList<SNPChromosome11>();
+                    	                List<SNPChromosome> snpchromosome11List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome11List = serviceSNPChromosome11.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome11List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome11List.isEmpty() ) {
                     	     				
@@ -1001,11 +906,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome11> iteratorSNPChromosome11 = snpchromosome11List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome11List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome11.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome11 snpchromosome11 = iteratorSNPChromosome11.next();
+                                    	     		SNPChromosome snpchromosome11 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome11.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome11.setPredictionCategory(siftdata.getPredictionCategory());
@@ -1014,7 +919,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome11.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome11.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome11.update(snpchromosome11);
+                                    	     		serviceSNPChromosome.update(snpchromosome11);
                                     	     		
                                     	     		intSNPChromosomeCount11++;
                                     	     	}
@@ -1024,9 +929,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome12() ) {
                     	     			
-                    	                List<SNPChromosome12> snpchromosome12List = new ArrayList<SNPChromosome12>();
+                    	                List<SNPChromosome> snpchromosome12List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome12List = serviceSNPChromosome12.findBySnpId(siftdata.getSnpId());
+                    	                snpchromosome12List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	                
                     	     			if ( snpchromosome12List.isEmpty() ) {
                     	     				
@@ -1070,11 +975,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome12> iteratorSNPChromosome12 = snpchromosome12List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome12List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome12.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome12 snpchromosome12 = iteratorSNPChromosome12.next();
+                                    	     		SNPChromosome snpchromosome12 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome12.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome12.setPredictionCategory(siftdata.getPredictionCategory());
@@ -1083,7 +988,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome12.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome12.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome12.update(snpchromosome12);
+                                    	     		serviceSNPChromosome.update(snpchromosome12);
                                     	     		
                                     	     		intSNPChromosomeCount12++;
                                     	     	}
@@ -1093,9 +998,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome13() ) {
                     	     			
-                    	                List<SNPChromosome13> snpchromosome13List = new ArrayList<SNPChromosome13>();
+                    	                List<SNPChromosome> snpchromosome13List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome13List = serviceSNPChromosome13.findBySnpId(siftdata.getSnpId());
+                    	                snpchromosome13List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	                
                     	     			if ( snpchromosome13List.isEmpty() ) {
                     	     				
@@ -1139,11 +1044,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome13> iteratorSNPChromosome13 = snpchromosome13List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome13List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome13.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome13 snpchromosome13 = iteratorSNPChromosome13.next();
+                                    	     		SNPChromosome snpchromosome13 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome13.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome13.setPredictionCategory(siftdata.getPredictionCategory());
@@ -1152,7 +1057,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome13.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome13.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome13.update(snpchromosome13);
+                                    	     		serviceSNPChromosome.update(snpchromosome13);
                                     	     		
                                     	     		intSNPChromosomeCount13++;
                                     	     	}
@@ -1162,9 +1067,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome14() ) {
                     	     			
-                    	                List<SNPChromosome14> snpchromosome14List = new ArrayList<SNPChromosome14>();
+                    	                List<SNPChromosome> snpchromosome14List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome14List = serviceSNPChromosome14.findBySnpId(siftdata.getSnpId());
+                    	                snpchromosome14List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	                
                     	     			if ( snpchromosome14List.isEmpty() ) {
                     	     				
@@ -1208,11 +1113,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome14> iteratorSNPChromosome14 = snpchromosome14List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome14List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome14.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome14 snpchromosome14 = iteratorSNPChromosome14.next();
+                                    	     		SNPChromosome snpchromosome14 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome14.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome14.setPredictionCategory(siftdata.getPredictionCategory());
@@ -1221,7 +1126,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome14.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome14.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome14.update(snpchromosome14);
+                                    	     		serviceSNPChromosome.update(snpchromosome14);
                                     	     		
                                     	     		intSNPChromosomeCount14++;
                                     	     	}
@@ -1231,9 +1136,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome15() ) {
                     	     			
-                    	                List<SNPChromosome15> snpchromosome15List = new ArrayList<SNPChromosome15>();
+                    	                List<SNPChromosome> snpchromosome15List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome15List = serviceSNPChromosome15.findBySnpId(siftdata.getSnpId());
+                    	                snpchromosome15List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	                
                     	     			if ( snpchromosome15List.isEmpty() ) {
                     	     				
@@ -1277,11 +1182,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome15> iteratorSNPChromosome15 = snpchromosome15List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome15List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome15.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome15 snpchromosome15 = iteratorSNPChromosome15.next();
+                                    	     		SNPChromosome snpchromosome15 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome15.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome15.setPredictionCategory(siftdata.getPredictionCategory());
@@ -1290,7 +1195,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome15.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome15.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome15.update(snpchromosome15);
+                                    	     		serviceSNPChromosome.update(snpchromosome15);
                                     	     		
                                     	     		intSNPChromosomeCount15++;
                                     	     	}
@@ -1300,9 +1205,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome16() ) {
 
-                    	                List<SNPChromosome16> snpchromosome16List = new ArrayList<SNPChromosome16>();
+                    	                List<SNPChromosome> snpchromosome16List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome16List = serviceSNPChromosome16.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome16List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome16List.isEmpty() ) {
                     	     				
@@ -1346,11 +1251,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome16> iteratorSNPChromosome16 = snpchromosome16List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome16List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome16.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome16 snpchromosome16 = iteratorSNPChromosome16.next();
+                                    	     		SNPChromosome snpchromosome16 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome16.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome16.setPredictionCategory(siftdata.getPredictionCategory());
@@ -1359,7 +1264,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome16.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome16.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome16.update(snpchromosome16);
+                                    	     		serviceSNPChromosome.update(snpchromosome16);
                                     	     		
                                     	     		intSNPChromosomeCount16++;
                                     	     	}
@@ -1369,9 +1274,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome17() ) {
                     	     			
-                    	                List<SNPChromosome17> snpchromosome17List = new ArrayList<SNPChromosome17>();
+                    	                List<SNPChromosome> snpchromosome17List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome17List = serviceSNPChromosome17.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome17List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome17List.isEmpty() ) {
                     	     				
@@ -1415,11 +1320,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome17> iteratorSNPChromosome17 = snpchromosome17List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome17List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome17.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome17 snpchromosome17 = iteratorSNPChromosome17.next();
+                                    	     		SNPChromosome snpchromosome17 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome17.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome17.setPredictionCategory(siftdata.getPredictionCategory());
@@ -1428,7 +1333,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome17.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome17.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome17.update(snpchromosome17);
+                                    	     		serviceSNPChromosome.update(snpchromosome17);
                                     	     		
                                     	     		intSNPChromosomeCount17++;
                                     	     	}
@@ -1438,9 +1343,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome18() ) {
 
-                    	                List<SNPChromosome18> snpchromosome18List = new ArrayList<SNPChromosome18>();
+                    	                List<SNPChromosome> snpchromosome18List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome18List = serviceSNPChromosome18.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome18List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome18List.isEmpty() ) {
                     	     				
@@ -1484,11 +1389,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome18> iteratorSNPChromosome18 = snpchromosome18List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome18List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome18.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome18 snpchromosome18 = iteratorSNPChromosome18.next();
+                                    	     		SNPChromosome snpchromosome18 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome18.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome18.setPredictionCategory(siftdata.getPredictionCategory());
@@ -1497,7 +1402,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome18.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome18.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome18.update(snpchromosome18);
+                                    	     		serviceSNPChromosome.update(snpchromosome18);
                                     	     		
                                     	     		intSNPChromosomeCount18++;
                                     	     	}
@@ -1507,9 +1412,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome19() ) {
 
-                    	                List<SNPChromosome19> snpchromosome19List = new ArrayList<SNPChromosome19>();
+                    	                List<SNPChromosome> snpchromosome19List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome19List = serviceSNPChromosome19.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome19List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome19List.isEmpty() ) {
                     	     				
@@ -1553,11 +1458,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome19> iteratorSNPChromosome19 = snpchromosome19List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome19List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome19.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome19 snpchromosome19 = iteratorSNPChromosome19.next();
+                                    	     		SNPChromosome snpchromosome19 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome19.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome19.setPredictionCategory(siftdata.getPredictionCategory());
@@ -1566,7 +1471,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome19.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome19.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome19.update(snpchromosome19);
+                                    	     		serviceSNPChromosome.update(snpchromosome19);
                                     	     		
                                     	     		intSNPChromosomeCount19++;
                                     	     	}
@@ -1576,9 +1481,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome20() ) {
                     	     			
-                    	                List<SNPChromosome20> snpchromosome20List = new ArrayList<SNPChromosome20>();
+                    	                List<SNPChromosome> snpchromosome20List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome20List = serviceSNPChromosome20.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome20List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome20List.isEmpty() ) {
                     	     				
@@ -1622,11 +1527,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome20> iteratorSNPChromosome20 = snpchromosome20List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome20List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome20.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome20 snpchromosome20 = iteratorSNPChromosome20.next();
+                                    	     		SNPChromosome snpchromosome20 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome20.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome20.setPredictionCategory(siftdata.getPredictionCategory());
@@ -1635,7 +1540,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome20.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome20.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome20.update(snpchromosome20);
+                                    	     		serviceSNPChromosome.update(snpchromosome20);
                                     	     		
                                     	     		intSNPChromosomeCount20++;
                                     	     	}
@@ -1645,9 +1550,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome21() ) {
 
-                    	                List<SNPChromosome21> snpchromosome21List = new ArrayList<SNPChromosome21>();
+                    	                List<SNPChromosome> snpchromosome21List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome21List = serviceSNPChromosome21.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome21List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome21List.isEmpty() ) {
                     	     				
@@ -1691,11 +1596,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome21> iteratorSNPChromosome21 = snpchromosome21List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome21List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome21.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome21 snpchromosome21 = iteratorSNPChromosome21.next();
+                                    	     		SNPChromosome snpchromosome21 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome21.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome21.setPredictionCategory(siftdata.getPredictionCategory());
@@ -1704,7 +1609,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome21.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome21.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome21.update(snpchromosome21);
+                                    	     		serviceSNPChromosome.update(snpchromosome21);
                                     	     		
                                     	     		intSNPChromosomeCount21++;
                                     	        }
@@ -1714,9 +1619,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome22() ) {
 
-                    	                List<SNPChromosome22> snpchromosome22List = new ArrayList<SNPChromosome22>();
+                    	                List<SNPChromosome> snpchromosome22List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome22List = serviceSNPChromosome22.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome22List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome22List.isEmpty() ) {
                     	     				
@@ -1760,11 +1665,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome22> iteratorSNPChromosome22 = snpchromosome22List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome22List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome22.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome22 snpchromosome22 = iteratorSNPChromosome22.next();
+                                    	     		SNPChromosome snpchromosome22 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome22.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome22.setPredictionCategory(siftdata.getPredictionCategory());
@@ -1773,7 +1678,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome22.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome22.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome22.update(snpchromosome22);
+                                    	     		serviceSNPChromosome.update(snpchromosome22);
                                     	     		
                                     	     		intSNPChromosomeCount22++;
                                     	     	}
@@ -1783,9 +1688,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome23() ) {
                     	     			
-                    	                List<SNPChromosome23> snpchromosome23List = new ArrayList<SNPChromosome23>();
+                    	                List<SNPChromosome> snpchromosome23List = new ArrayList<SNPChromosome>();
                     	                
-                    	                snpchromosome23List = serviceSNPChromosome23.findBySnpId(siftdata.getSnpId());
+                    	                snpchromosome23List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	                
                     	     			if ( snpchromosome23List.isEmpty() ) {
                     	     				
@@ -1829,11 +1734,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome23> iteratorSNPChromosome23 = snpchromosome23List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome23List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome23.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome23 snpchromosome23 = iteratorSNPChromosome23.next();
+                                    	     		SNPChromosome snpchromosome23 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome23.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome23.setPredictionCategory(siftdata.getPredictionCategory());
@@ -1842,7 +1747,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome23.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome23.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome23.update(snpchromosome23);
+                                    	     		serviceSNPChromosome.update(snpchromosome23);
                                     	     		
                                     	     		intSNPChromosomeCount23++;
                                     	     	}
@@ -1852,9 +1757,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome24() ) {
                     	     			
-                    	     			List<SNPChromosome24> snpchromosome24List = new ArrayList<SNPChromosome24>();
+                    	     			List<SNPChromosome> snpchromosome24List = new ArrayList<SNPChromosome>();
 
-                    	                snpchromosome24List = serviceSNPChromosome24.findBySnpId(siftdata.getSnpId());
+                    	                snpchromosome24List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	                
                     	     			if ( snpchromosome24List.isEmpty() ) {
                     	     				
@@ -1898,11 +1803,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome24> iteratorSNPChromosome24 = snpchromosome24List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome24List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome24.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome24 snpchromosome24 = iteratorSNPChromosome24.next();
+                                    	     		SNPChromosome snpchromosome24 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome24.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome24.setPredictionCategory(siftdata.getPredictionCategory());
@@ -1911,7 +1816,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome24.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome24.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome24.update(snpchromosome24);
+                                    	     		serviceSNPChromosome.update(snpchromosome24);
                                     	     		
                                     	     		intSNPChromosomeCount24++;
                                     	     	}
@@ -1921,9 +1826,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome25() ) {
                     	     			
-                    	                List<SNPChromosome25> snpchromosome25List = new ArrayList<SNPChromosome25>();
+                    	                List<SNPChromosome> snpchromosome25List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome25List = serviceSNPChromosome25.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome25List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome25List.isEmpty() ) {
                     	     				
@@ -1967,11 +1872,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome25> iteratorSNPChromosome25 = snpchromosome25List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome25List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome25.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome25 snpchromosome25 = iteratorSNPChromosome25.next();
+                                    	     		SNPChromosome snpchromosome25 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome25.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome25.setPredictionCategory(siftdata.getPredictionCategory());
@@ -1980,7 +1885,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome25.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome25.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome25.update(snpchromosome25);
+                                    	     		serviceSNPChromosome.update(snpchromosome25);
                                     	     		
                                     	     		intSNPChromosomeCount25++;
                                     	     	}
@@ -1990,9 +1895,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome26() ) {
 
-                    	                List<SNPChromosome26> snpchromosome26List = new ArrayList<SNPChromosome26>();
+                    	                List<SNPChromosome> snpchromosome26List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome26List = serviceSNPChromosome26.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome26List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome26List.isEmpty() ) {
                     	     				
@@ -2036,11 +1941,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome26> iteratorSNPChromosome26 = snpchromosome26List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome26List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome26.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome26 snpchromosome26 = iteratorSNPChromosome26.next();
+                                    	     		SNPChromosome snpchromosome26 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome26.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome26.setPredictionCategory(siftdata.getPredictionCategory());
@@ -2049,7 +1954,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome26.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome26.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome26.update(snpchromosome26);
+                                    	     		serviceSNPChromosome.update(snpchromosome26);
                                     	     		
                                     	     		intSNPChromosomeCount26++;
                                     	     	}
@@ -2059,9 +1964,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome27() ) {
                     	     			
-                    	                List<SNPChromosome27> snpchromosome27List = new ArrayList<SNPChromosome27>();
+                    	                List<SNPChromosome> snpchromosome27List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome27List = serviceSNPChromosome27.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome27List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome27List.isEmpty() ) {
                     	     				
@@ -2105,11 +2010,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome27> iteratorSNPChromosome27 = snpchromosome27List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome27List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome27.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome27 snpchromosome27 = iteratorSNPChromosome27.next();
+                                    	     		SNPChromosome snpchromosome27 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome27.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome27.setPredictionCategory(siftdata.getPredictionCategory());
@@ -2118,7 +2023,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome27.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome27.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome27.update(snpchromosome27);
+                                    	     		serviceSNPChromosome.update(snpchromosome27);
                                     	     		
                                     	     		intSNPChromosomeCount27++;
                                     	     	}
@@ -2128,9 +2033,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome28() ) {
 
-                    	                List<SNPChromosome28> snpchromosome28List = new ArrayList<SNPChromosome28>();
+                    	                List<SNPChromosome> snpchromosome28List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome28List = serviceSNPChromosome28.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome28List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome28List.isEmpty() ) {
                     	     				
@@ -2174,11 +2079,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome28> iteratorSNPChromosome28 = snpchromosome28List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome28List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome28.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome28 snpchromosome28 = iteratorSNPChromosome28.next();
+                                    	     		SNPChromosome snpchromosome28 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome28.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome28.setPredictionCategory(siftdata.getPredictionCategory());
@@ -2187,7 +2092,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome28.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome28.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome28.update(snpchromosome28);
+                                    	     		serviceSNPChromosome.update(snpchromosome28);
                                     	     		
                                     	     		intSNPChromosomeCount28++;
                                     	     	}
@@ -2197,9 +2102,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosome32() ) {
                     	     			
-                    	                List<SNPChromosome32> snpchromosome32List = new ArrayList<SNPChromosome32>();
+                    	                List<SNPChromosome> snpchromosome32List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosome32List = serviceSNPChromosome32.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosome32List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosome32List.isEmpty() ) {
                     	     				
@@ -2243,11 +2148,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosome32> iteratorSNPChromosome32 = snpchromosome32List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosome32List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosome32.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosome32 snpchromosome32 = iteratorSNPChromosome32.next();
+                                    	     		SNPChromosome snpchromosome32 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosome32.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosome32.setPredictionCategory(siftdata.getPredictionCategory());
@@ -2256,7 +2161,7 @@ public class UpdateSiftData {
                                     	     		snpchromosome32.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosome32.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosome32.update(snpchromosome32);
+                                    	     		serviceSNPChromosome.update(snpchromosome32);
                                     	     		
                                     	     		intSNPChromosomeCount32++;
                                     	     	}
@@ -2266,9 +2171,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosomeLGE64() ) {
                     	     			
-                    	                List<SNPChromosomeLGE64> snpchromosomeLGE64List = new ArrayList<SNPChromosomeLGE64>();
+                    	                List<SNPChromosome> snpchromosomeLGE64List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosomeLGE64List = serviceSNPChromosomeLGE64.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosomeLGE64List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosomeLGE64List.isEmpty() ) {
                     	     				
@@ -2312,11 +2217,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosomeLGE64> iteratorSNPChromosomeLGE64 = snpchromosomeLGE64List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosomeLGE64List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosomeLGE64.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosomeLGE64 snpchromosomeLGE64 = iteratorSNPChromosomeLGE64.next();
+                                    	     		SNPChromosome snpchromosomeLGE64 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosomeLGE64.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosomeLGE64.setPredictionCategory(siftdata.getPredictionCategory());
@@ -2325,7 +2230,7 @@ public class UpdateSiftData {
                                     	     		snpchromosomeLGE64.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosomeLGE64.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosomeLGE64.update(snpchromosomeLGE64);
+                                    	     		serviceSNPChromosome.update(snpchromosomeLGE64);
                                     	     		
                                     	     		intSNPChromosomeCountLGE64++;
                                     	     	}
@@ -2335,9 +2240,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosomeLGE22C19W28_E50C23() ) {
                     	     			
-                    	                List<SNPChromosomeLGE22C19W28_E50C23> snpchromosomeLGE22C19W28_E50C23List = new ArrayList<SNPChromosomeLGE22C19W28_E50C23>();
+                    	                List<SNPChromosome> snpchromosomeLGE22C19W28_E50C23List = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosomeLGE22C19W28_E50C23List = serviceSNPChromosomeLGE22C19W28_E50C23.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosomeLGE22C19W28_E50C23List = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosomeLGE22C19W28_E50C23List.isEmpty() ) {
                     	     				
@@ -2381,11 +2286,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosomeLGE22C19W28_E50C23> iteratorSNPChromosomeLGE22C19W28_E50C23 = snpchromosomeLGE22C19W28_E50C23List.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosomeLGE22C19W28_E50C23List.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosomeLGE22C19W28_E50C23.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosomeLGE22C19W28_E50C23 snpchromosomeLGE22C19W28_E50C23 = iteratorSNPChromosomeLGE22C19W28_E50C23.next();
+                                    	     		SNPChromosome snpchromosomeLGE22C19W28_E50C23 = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosomeLGE22C19W28_E50C23.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosomeLGE22C19W28_E50C23.setPredictionCategory(siftdata.getPredictionCategory());
@@ -2394,7 +2299,7 @@ public class UpdateSiftData {
                                     	     		snpchromosomeLGE22C19W28_E50C23.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosomeLGE22C19W28_E50C23.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosomeLGE22C19W28_E50C23.update(snpchromosomeLGE22C19W28_E50C23);
+                                    	     		serviceSNPChromosome.update(snpchromosomeLGE22C19W28_E50C23);
                                     	     		
                                     	     		intSNPChromosomeCountLGE22C19W28_E50C23++;
                                     	     	}
@@ -2404,9 +2309,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosomeW() ) {
                     	     			
-                    	                List<SNPChromosomeW> snpchromosomeWList = new ArrayList<SNPChromosomeW>();
+                    	                List<SNPChromosome> snpchromosomeWList = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosomeWList = serviceSNPChromosomeW.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosomeWList = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosomeWList.isEmpty() ) {
                     	     				
@@ -2450,11 +2355,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
 
-                                    	        Iterator<SNPChromosomeW> iteratorSNPChromosomeW = snpchromosomeWList.iterator();
+                                    	        Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosomeWList.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosomeW.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosomeW snpchromosomeW = iteratorSNPChromosomeW.next();
+                                    	     		SNPChromosome snpchromosomeW = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosomeW.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosomeW.setPredictionCategory(siftdata.getPredictionCategory());
@@ -2463,7 +2368,7 @@ public class UpdateSiftData {
                                     	     		snpchromosomeW.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosomeW.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosomeW.update(snpchromosomeW);
+                                    	     		serviceSNPChromosome.update(snpchromosomeW);
                                     	     		
                                     	     		intSNPChromosomeCountW++;
                                     	     	}
@@ -2473,9 +2378,9 @@ public class UpdateSiftData {
 
                     	     		if ( siftdata.isChromosomeZ() ) {
                     	     			
-                    	                List<SNPChromosomeZ> snpchromosomeZList = new ArrayList<SNPChromosomeZ>();
+                    	                List<SNPChromosome> snpchromosomeZList = new ArrayList<SNPChromosome>();
 
-                    	     			snpchromosomeZList = serviceSNPChromosomeZ.findBySnpId(siftdata.getSnpId());
+                    	     			snpchromosomeZList = serviceSNPChromosome.findBySnpId(siftdata.getSnpId());
                     	     			
                     	     			if ( snpchromosomeZList.isEmpty() ) {
                     	     				
@@ -2519,11 +2424,11 @@ public class UpdateSiftData {
                         	     			}
                         	     			else {
                         	     				
-                            	     			Iterator<SNPChromosomeZ> iteratorSNPChromosomeZ = snpchromosomeZList.iterator();
+                            	     			Iterator<SNPChromosome> iteratorSNPChromosome = snpchromosomeZList.iterator();
                                     	     	
-                                    	        while (iteratorSNPChromosomeZ.hasNext()) {
+                                    	        while (iteratorSNPChromosome.hasNext()) {
 
-                                    	     		SNPChromosomeZ snpchromosomeZ = iteratorSNPChromosomeZ.next();
+                                    	     		SNPChromosome snpchromosomeZ = iteratorSNPChromosome.next();
                                     	     		
                                     	     		snpchromosomeZ.setAminoAcidSubs(siftdata.getAminoAcidSubs());
                                     	     		snpchromosomeZ.setPredictionCategory(siftdata.getPredictionCategory());
@@ -2532,7 +2437,7 @@ public class UpdateSiftData {
                                     	     		snpchromosomeZ.setProteinAlignNumber(siftdata.getProteinAlignNumber());
                                     	     		snpchromosomeZ.setTotalAlignSequenceNumber(siftdata.getTotalAlignSequenceNumber());
 
-                                    	     		serviceSNPChromosomeZ.update(snpchromosomeZ);
+                                    	     		serviceSNPChromosome.update(snpchromosomeZ);
                                     	     		
                                     	     		intSNPChromosomeCountZ++;
                                     	     	}
