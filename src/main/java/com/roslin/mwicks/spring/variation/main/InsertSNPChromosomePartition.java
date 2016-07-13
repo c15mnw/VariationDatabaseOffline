@@ -94,7 +94,7 @@ public class InsertSNPChromosomePartition {
             				
                 			totalFileCount++;
 
-                            List<SNPChromosome> snpchromosomeList = ConvertFiletoSNPChromosomeList.run(file, totalRecordCount);
+                            List<SNPChromosome> snpchromosomeList = ConvertFiletoSNPChromosomeList.run(file, totalRecordCount, MSGLEVEL, MSGLEVEL);
 
                             ServiceSNPChromosome serviceSNPChromosome = (ServiceSNPChromosome) applicationContext.getBean(ServiceSNPChromosome.class);
                             
@@ -102,19 +102,19 @@ public class InsertSNPChromosomePartition {
                             
                             snpchromosomeTotal = snpchromosomeTotal + totalRecordCount;
                             
-                			System.out.println(StringUtility.pad(totalFileCount, 4, PAD_CHAR) + " : Directory : " + directory + " : " + file.getName() + " : records : " + StringUtility.pad(snpchromosomeList.size(), 8, PAD_CHAR));
+                			Wrapper.printMessage(StringUtility.pad(totalFileCount, 4, PAD_CHAR) + " : Directory : " + directory + " : " + file.getName() + " : records : " + StringUtility.pad(snpchromosomeList.size(), 8, PAD_CHAR), MSGLEVEL, MSGLEVEL);
 
                 			serviceSNPChromosome.bulkSave(intBatchSize, snpchromosomeList);
             			}
             		}
             		
-            		System.out.println(StringUtility.pad(snpchromosomeTotal, 8, PAD_CHAR) + " Records inserted into SNP_CHROMOSOME");
+            		Wrapper.printMessage(StringUtility.pad(snpchromosomeTotal, 8, PAD_CHAR) + " Records inserted into SNP_CHROMOSOME", MSGLEVEL, MSGLEVEL);
 
-        			System.out.println(StringUtility.pad(totalRecordCount, 8, PAD_CHAR) + " Records inserted from " + totalFileCount + " files in Directory " + directory );
+        			Wrapper.printMessage(StringUtility.pad(totalRecordCount, 8, PAD_CHAR) + " Records inserted from " + totalFileCount + " files in Directory " + directory, MSGLEVEL, MSGLEVEL);
                 }
                 else {
                 	
-                    System.out.println("Directory " + directory + " DOES NOT exist!!!");
+                    Wrapper.printMessage("Directory " + directory + " DOES NOT exist!!!", MSGLEVEL, MSGLEVEL);
                 }
             }
     		

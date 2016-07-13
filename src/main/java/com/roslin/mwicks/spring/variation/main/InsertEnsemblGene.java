@@ -94,13 +94,13 @@ public class InsertEnsemblGene {
             				
                 			totalFileCount++;
 
-                            List<EnsemblGene> ensemblgeneList = ConvertFiletoEnsemblGeneList.run(file);
+                            List<EnsemblGene> ensemblgeneList = ConvertFiletoEnsemblGeneList.run(file, MSGLEVEL, MSGLEVEL);
                             
                             ServiceEnsemblGene serviceEnsemblGene = (ServiceEnsemblGene) applicationContext.getBean(ServiceEnsemblGene.class);
                             
                             totalRecordCount = totalRecordCount +  ensemblgeneList.size();
                             
-                			System.out.println(StringUtility.pad(totalFileCount, 3, PAD_CHAR) + " : Directory : " + directory + " : " + file.getName() + " : records : " + StringUtility.pad(ensemblgeneList.size(), 8, PAD_CHAR));
+                			Wrapper.printMessage(StringUtility.pad(totalFileCount, 3, PAD_CHAR) + " : Directory : " + directory + " : " + file.getName() + " : records : " + StringUtility.pad(ensemblgeneList.size(), 8, PAD_CHAR), MSGLEVEL, MSGLEVEL);
 
                 	     	ensemblgeneTotal = ensemblgeneTotal + ensemblgeneList.size();
 
@@ -108,13 +108,13 @@ public class InsertEnsemblGene {
             			}
             		}
             		
-            		System.out.println(StringUtility.pad(ensemblgeneTotal, 8, PAD_CHAR) + " Records inserted into ENSEMBL_GENE");
+            		Wrapper.printMessage(StringUtility.pad(ensemblgeneTotal, 8, PAD_CHAR) + " Records inserted into ENSEMBL_GENE", MSGLEVEL, MSGLEVEL);
 
-        			System.out.println(StringUtility.pad(totalRecordCount, 8, PAD_CHAR) + " Records inserted from " + totalFileCount + " files in Directory " + directory );
+        			Wrapper.printMessage(StringUtility.pad(totalRecordCount, 8, PAD_CHAR) + " Records inserted from " + totalFileCount + " files in Directory " + directory, MSGLEVEL, MSGLEVEL);
                 }
                 else {
                 	
-                    System.out.println("Directory " + directory + " DOES NOT exist!!!");
+                    Wrapper.printMessage("Directory " + directory + " DOES NOT exist!!!", MSGLEVEL, MSGLEVEL);
                 }
                     
             }

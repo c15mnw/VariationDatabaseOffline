@@ -11,7 +11,7 @@ import com.roslin.mwicks.utility.CsvUtil;
 import com.roslin.mwicks.utility.FileNamingDateTime;
 import com.roslin.mwicks.utility.FileUtil;
 import com.roslin.mwicks.utility.StringUtility;
-
+import com.roslin.mwicks.utility.Wrapper;
 import com.roslin.mwicks.spring.variation.dto.offline.DTORatioData;
 
 import com.roslin.mwicks.spring.variation.model.other.RatioData;
@@ -38,8 +38,9 @@ public final class ConvertFiletoUpdateRatioDataList {
 	protected static final String IN_STRAIN_ZERO = "pk6";
 	protected static final String IN_STRAIN_6 = "pk7";
 	protected static final String IN_STRAIN_C = "pk8";
+	
 
-	public static List<RatioData> run ( File file ) throws Exception {
+	public static List<RatioData> run ( File file, String messagePriority, String requestPriority ) throws Exception {
 
         // Create List of SNPChromosomes
         List<RatioData> outputRatioDataList = new ArrayList<RatioData>();
@@ -148,21 +149,22 @@ public final class ConvertFiletoUpdateRatioDataList {
 
      				errorRecords.add(errorRecord);
 
-	         		//System.out.println("Error No." + error + " : " + dtoRatioData.toString());
+	         		Wrapper.printMessage("Error No." + error + " : " + dtoRatioData.toString(), messagePriority, requestPriority);
 	         	}
 	     	}
 	     	
     		FileUtil.write(errorFile, errorRecords);
 
-    		System.out.println(StringUtility.pad(total, 8, PAD_CHAR) + " Total Records in CSV File!");
-     		System.out.println(StringUtility.pad(good, 8, PAD_CHAR) + " Good Records in CSV File!");
-     		System.out.println(StringUtility.pad(newRecord, 8, PAD_CHAR) + " New Records in CSV File!");
-     		System.out.println(StringUtility.pad(error, 8, PAD_CHAR) + " Error Records IGNORED from CSV File!");
-		
+     		Wrapper.printMessage(StringUtility.pad(total, 8, PAD_CHAR) + " Total Records in CSV File!", messagePriority, requestPriority);
+     		Wrapper.printMessage(StringUtility.pad(good, 8, PAD_CHAR) + " Good Records in CSV File!", messagePriority, requestPriority);
+     		Wrapper.printMessage(StringUtility.pad(newRecord, 8, PAD_CHAR) + " New Records in CSV File!", messagePriority, requestPriority);
+     		Wrapper.printMessage(StringUtility.pad(error, 8, PAD_CHAR) + " Error Records IGNORED from CSV File!", messagePriority, requestPriority);
 		}
 		catch (Exception e) {
 			
-	        System.out.println("Exception : " + e.toString() );
+			Wrapper.printMessage("Exception : " + e.toString(), messagePriority, requestPriority);
+	        
+    		e.printStackTrace();
 		}
 		
 		return outputRatioDataList;

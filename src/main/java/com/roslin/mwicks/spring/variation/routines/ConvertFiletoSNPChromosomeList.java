@@ -8,6 +8,8 @@ import java.util.List;
 
 import com.roslin.mwicks.utility.CsvUtil;
 import com.roslin.mwicks.utility.FileUtil;
+import com.roslin.mwicks.utility.Wrapper;
+
 import com.roslin.mwicks.spring.variation.dto.offline.DTOSNPChromosome;
 import com.roslin.mwicks.spring.variation.model.snpchromosome.SNPChromosome;
 
@@ -26,7 +28,7 @@ public final class ConvertFiletoSNPChromosomeList {
 	protected static final String STRING_OUTPUT_REFERENCE = "Ref.";
 	
 
-	public static List<SNPChromosome> run ( File file, int startRecordCount ) throws Exception {
+	public static List<SNPChromosome> run ( File file, int startRecordCount, String messagePriority, String requestPriority ) throws Exception {
 
         // Create List of SNPChromosomes
         List<SNPChromosome> outputsnpchromosomeList = new ArrayList<SNPChromosome>();
@@ -274,25 +276,25 @@ public final class ConvertFiletoSNPChromosomeList {
 
 	         	if ( dtosnpchromosome.isThisAValidSNPChromosome() ) {
 	         		
-	         		//System.out.println("dtosnpchromosome.toString() : " + dtosnpchromosome.toString());
+	         		//Wrapper.printMessage("dtosnpchromosome.toString() : " + dtosnpchromosome.toString(), messagePriority, requestPriority);
 		         	
 	         		outputsnpchromosomeList.add(dtosnpchromosome.convertToSNPChromosome());
 	         	}
 	         	else {
 	         		
 	         		error++;
-	         		System.out.println("Error No." + error + " : " + dtosnpchromosome.toString());
+	         		Wrapper.printMessage("Error No." + error + " : " + dtosnpchromosome.toString(), messagePriority, requestPriority);
 	    	        System.exit(99);
 	         	}
 	     	}
 		}
 		catch (Exception e) {
 			
-	        System.out.println("Exception : " + e.toString() );
+	        Wrapper.printMessage("Exception : " + e.toString(), messagePriority, requestPriority);
+	        
 	        System.exit(99);
 		}
 		
 		return outputsnpchromosomeList;
-
 	}
 }

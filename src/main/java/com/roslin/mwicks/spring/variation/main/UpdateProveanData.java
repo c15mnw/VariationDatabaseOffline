@@ -27,7 +27,6 @@ import com.roslin.mwicks.spring.variation.routines.ConvertFiletoUpdateProveanDat
 import com.roslin.mwicks.spring.variation.serviceinterface.snpchromosome.ServiceSNPChromosome;
 
 import com.roslin.mwicks.utility.FileUtil;
-import com.roslin.mwicks.utility.ObjectConverter;
 import com.roslin.mwicks.utility.StringUtility;
 import com.roslin.mwicks.utility.Wrapper;
 
@@ -134,11 +133,11 @@ public class UpdateProveanData {
             				
                 			totalFileCount++;
 
-                            List<ProveanData> proveandataList = ConvertFiletoUpdateProveanDataList.run(file);
+                            List<ProveanData> proveandataList = ConvertFiletoUpdateProveanDataList.run(file, MSGLEVEL, MSGLEVEL);
  
                             totalRecordCount = totalRecordCount +  proveandataList.size();
                             
-                			System.out.println(StringUtility.pad(totalFileCount, 3, PAD_CHAR) + " : Directory : " + directory + " : " + file.getName() + " : records : " + StringUtility.pad(proveandataList.size(), 8, PAD_CHAR));
+                            Wrapper.printMessage(StringUtility.pad(totalFileCount, 3, PAD_CHAR) + " : Directory : " + directory + " : " + file.getName() + " : records : " + StringUtility.pad(proveandataList.size(), 8, PAD_CHAR), MSGLEVEL, MSGLEVEL);
 
                 	     	proveandataTotal = proveandataTotal + proveandataList.size();
                 	     	
@@ -163,7 +162,7 @@ public class UpdateProveanData {
 
             	     				errorRecords.add(errorRecord);
 
-            	     				//System.out.println("Error No. " + error + " : SNP Id. " + siftdata.getSnpId() + " UNKNOWN CHROMOSOME : " + siftdata.toString());
+            	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " UNKNOWN CHROMOSOME : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                 	     		}
                 	     		else {
 
@@ -188,7 +187,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
                     	     				
@@ -207,7 +206,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -258,7 +257,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
                     	     				
@@ -277,7 +276,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -328,7 +327,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -347,7 +346,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -398,7 +397,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -417,7 +416,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -468,7 +467,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -487,7 +486,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -538,7 +537,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -557,7 +556,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -608,7 +607,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -627,7 +626,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -678,7 +677,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -697,7 +696,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -748,7 +747,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -767,7 +766,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -818,7 +817,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -837,7 +836,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -888,7 +887,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -907,7 +906,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -958,7 +957,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
                     	     				
@@ -977,7 +976,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -1028,7 +1027,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -1047,7 +1046,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -1098,7 +1097,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -1117,7 +1116,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -1168,7 +1167,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -1187,7 +1186,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -1238,7 +1237,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -1257,7 +1256,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -1308,7 +1307,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -1327,7 +1326,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -1378,7 +1377,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -1397,7 +1396,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -1448,7 +1447,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -1467,7 +1466,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -1518,7 +1517,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -1537,7 +1536,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -1588,7 +1587,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -1607,7 +1606,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -1658,7 +1657,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -1677,7 +1676,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -1728,7 +1727,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -1747,7 +1746,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -1798,7 +1797,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -1817,7 +1816,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -1868,7 +1867,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -1887,7 +1886,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -1938,7 +1937,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -1957,7 +1956,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -2008,7 +2007,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -2027,7 +2026,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -2078,7 +2077,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
                     	     				
@@ -2097,7 +2096,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -2148,7 +2147,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -2167,7 +2166,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -2218,7 +2217,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
 
@@ -2237,7 +2236,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -2288,7 +2287,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
                     	     				
@@ -2307,7 +2306,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -2358,7 +2357,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
                     	     				
@@ -2377,7 +2376,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
 
@@ -2428,7 +2427,7 @@ public class UpdateProveanData {
 
                     	     				errorRecords.add(errorRecord);
 
-                    	     				//System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString());
+                    	     				//Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " NOT FOUND : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                     	     			}
                     	     			else {
                     	     				
@@ -2447,7 +2446,7 @@ public class UpdateProveanData {
 
                         	     				errorRecords.add(errorRecord);
 
-                        	     				System.out.println("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString());
+                        	     				Wrapper.printMessage("Error No. " + error + " : SNP Id. " + proveandata.getSnpId() + " GREATER THAN 1 ROW FOR : " + proveandata.toString(), MSGLEVEL, MSGLEVEL);
                         	     			}
                         	     			else {
                         	     				
@@ -2482,52 +2481,52 @@ public class UpdateProveanData {
             		}
             		
             		FileUtil.write(errorFile, errorRecords);
-            		
-        			System.out.println(StringUtility.pad(totalRecordCount, 8, PAD_CHAR) + " updated inserted from " + totalFileCount + " files in Directory " + directory );
 
-             		System.out.println(StringUtility.pad(error, 8, PAD_CHAR) + " Error Records IGNORED!");
+        			Wrapper.printMessage(StringUtility.pad(totalRecordCount, 8, PAD_CHAR) + " updated inserted from " + totalFileCount + " files in Directory " + directory, MSGLEVEL, MSGLEVEL);
 
-        			System.out.println(StringUtility.pad(intSNPChromosomeCount01, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount01");
-        			System.out.println(StringUtility.pad(intSNPChromosomeCount02, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount02");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount03, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount03");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount04, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount04");
-             		System.out.println(StringUtility.pad(intSNPChromosomeCount05, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount05");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount06, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount06");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount07, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount07");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount08, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount08");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount09, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount09");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount10, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount10");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount11, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount11");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount12, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount12");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount13, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount13");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount14, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount14");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount15, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount15");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount16, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount16");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount17, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount17");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount18, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount18");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount19, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount19");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount20, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount20");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount21, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount21");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount22, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount22");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount23, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount23");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount24, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount24");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount25, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount25");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount26, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount26");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount27, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount27");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount28, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount28");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCount32, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount32");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCountLGE22C19W28_E50C23, 8, PAD_CHAR) + " Records updated into SNPChromosomeCountLGE22C19W28_E50C23");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCountLGE64, 8, PAD_CHAR) + " Records updated into SNPChromosomeCountLGE64");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCountW, 8, PAD_CHAR) + " Records updated into SNPChromosomeCountW");
-            		System.out.println(StringUtility.pad(intSNPChromosomeCountZ, 8, PAD_CHAR) + " Records updated into SNPChromosomeCountZ");
+             		Wrapper.printMessage(StringUtility.pad(error, 8, PAD_CHAR) + " Error Records IGNORED!", MSGLEVEL, MSGLEVEL);
+
+        			Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount01, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount01", MSGLEVEL, MSGLEVEL);
+        			Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount02, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount02", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount03, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount03", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount04, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount04", MSGLEVEL, MSGLEVEL);
+             		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount05, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount05", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount06, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount06", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount07, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount07", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount08, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount08", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount09, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount09", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount10, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount10", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount11, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount11", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount12, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount12", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount13, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount13", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount14, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount14", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount15, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount15", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount16, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount16", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount17, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount17", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount18, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount18", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount19, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount19", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount20, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount20", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount21, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount21", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount22, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount22", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount23, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount23", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount24, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount24", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount25, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount25", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount26, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount26", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount27, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount27", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount28, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount28", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCount32, 8, PAD_CHAR) + " Records updated into SNPChromosomeCount32", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCountLGE22C19W28_E50C23, 8, PAD_CHAR) + " Records updated into SNPChromosomeCountLGE22C19W28_E50C23", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCountLGE64, 8, PAD_CHAR) + " Records updated into SNPChromosomeCountLGE64", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCountW, 8, PAD_CHAR) + " Records updated into SNPChromosomeCountW", MSGLEVEL, MSGLEVEL);
+            		Wrapper.printMessage(StringUtility.pad(intSNPChromosomeCountZ, 8, PAD_CHAR) + " Records updated into SNPChromosomeCountZ", MSGLEVEL, MSGLEVEL);
 
         			totalRecordCount = intSNPChromosomeCount01 + intSNPChromosomeCount02 + intSNPChromosomeCount03 + intSNPChromosomeCount04 + intSNPChromosomeCount05 + intSNPChromosomeCount06 + intSNPChromosomeCount07 + intSNPChromosomeCount08 + intSNPChromosomeCount09 + intSNPChromosomeCount10 + intSNPChromosomeCount11 + intSNPChromosomeCount12 + intSNPChromosomeCount13 + intSNPChromosomeCount14 + intSNPChromosomeCount15 + intSNPChromosomeCount16 + intSNPChromosomeCount17 + intSNPChromosomeCount18 + intSNPChromosomeCount19 + intSNPChromosomeCount20 + intSNPChromosomeCount21 + intSNPChromosomeCount22 + intSNPChromosomeCount23 + intSNPChromosomeCount24 + intSNPChromosomeCount25 + intSNPChromosomeCount26 + intSNPChromosomeCount27 + intSNPChromosomeCount28 + intSNPChromosomeCount32 + intSNPChromosomeCountLGE22C19W28_E50C23 + intSNPChromosomeCountLGE64 + intSNPChromosomeCountW + intSNPChromosomeCountZ;
         			
-        			System.out.println(StringUtility.pad(totalRecordCount, 8, PAD_CHAR) + " updated rows from " + totalFileCount + " files in Directory " + directory );
+        			Wrapper.printMessage(StringUtility.pad(totalRecordCount, 8, PAD_CHAR) + " updated rows from " + totalFileCount + " files in Directory " + directory, MSGLEVEL, MSGLEVEL);
                 }
                 else {
                 	
-                    System.out.println("Directory " + directory + " DOES NOT exist!!!");
+                    Wrapper.printMessage("Directory " + directory + " DOES NOT exist!!!", MSGLEVEL, MSGLEVEL);
                 }
                     
             }

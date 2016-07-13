@@ -9,13 +9,15 @@ import java.util.List;
 
 import com.roslin.mwicks.utility.CsvUtil;
 import com.roslin.mwicks.utility.FileUtil;
+import com.roslin.mwicks.utility.Wrapper;
+
 import com.roslin.mwicks.spring.variation.dto.offline.DTOEnsemblGene;
 import com.roslin.mwicks.spring.variation.model.ensemblgene.EnsemblGene;
 
 
 public final class ConvertFiletoEnsemblGeneList {
 
-	public static List<EnsemblGene> run ( File file ) throws Exception {
+	public static List<EnsemblGene> run ( File file, String messagePriority, String requestPriority ) throws Exception {
 
         // Create List of SNPChromosomes
         List<EnsemblGene> outputEnsemblGeneList = new ArrayList<EnsemblGene>();
@@ -78,7 +80,7 @@ public final class ConvertFiletoEnsemblGeneList {
 	         	else {
 	         		
 	         		error++;
-	         		System.out.println("Error No." + error + " : " + dtoEnsemblGene.toString());
+	         		Wrapper.printMessage("Error No." + error + " : " + dtoEnsemblGene.toString(), messagePriority, requestPriority);
 	         	}
 
 	     	}
@@ -86,10 +88,9 @@ public final class ConvertFiletoEnsemblGeneList {
 		}
 		catch (Exception e) {
 			
-	        System.out.println("Exception : " + e.toString() );
+	        Wrapper.printMessage("Exception : " + e.toString(), messagePriority, requestPriority);
 		}
 		
 		return outputEnsemblGeneList;
-
 	}
 }

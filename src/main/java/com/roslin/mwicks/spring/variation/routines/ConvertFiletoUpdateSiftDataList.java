@@ -10,7 +10,7 @@ import java.util.List;
 import com.roslin.mwicks.utility.CsvUtil;
 import com.roslin.mwicks.utility.FileUtil;
 import com.roslin.mwicks.utility.StringUtility;
-
+import com.roslin.mwicks.utility.Wrapper;
 import com.roslin.mwicks.spring.variation.dto.offline.DTOSiftData;
 
 import com.roslin.mwicks.spring.variation.model.other.SiftData;
@@ -20,7 +20,8 @@ public final class ConvertFiletoUpdateSiftDataList {
 
 	private static final char PAD_CHAR = ' ';
 
-	public static List<SiftData> run ( File file ) throws Exception {
+	
+	public static List<SiftData> run ( File file, String messagePriority, String requestPriority ) throws Exception {
 
         // Create List of SNPChromosomes
         List<SiftData> outputSiftDataList = new ArrayList<SiftData>();
@@ -130,20 +131,19 @@ public final class ConvertFiletoUpdateSiftDataList {
 
      				errorRecords.add(errorRecord);
 
-	         		//System.out.println("Error No." + error + " : " + dtoSiftData.toString());
+	         		Wrapper.printMessage("Error No." + error + " : " + dtoSiftData.toString(), messagePriority, requestPriority);
 	         	}
-
 	     	}
 	     	
     		FileUtil.write(errorFile, errorRecords);
 
-    		System.out.println(StringUtility.pad(total, 8, PAD_CHAR) + " Total Records in CSV File!");
-     		System.out.println(StringUtility.pad(good, 8, PAD_CHAR) + " Good Records in CSV File!");
-     		System.out.println(StringUtility.pad(error, 8, PAD_CHAR) + " Error Records IGNORED from CSV File!");
+     		Wrapper.printMessage(StringUtility.pad(total, 8, PAD_CHAR) + " Total Records in CSV File!", messagePriority, requestPriority);
+     		Wrapper.printMessage(StringUtility.pad(good, 8, PAD_CHAR) + " Good Records in CSV File!", messagePriority, requestPriority);
+     		Wrapper.printMessage(StringUtility.pad(error, 8, PAD_CHAR) + " Error Records IGNORED from CSV File!", messagePriority, requestPriority);
 		}
 		catch (Exception e) {
 			
-	        System.out.println("Exception : " + e.toString() );
+	        Wrapper.printMessage("Exception : " + e.toString(), messagePriority, requestPriority);
 	        
     		e.printStackTrace();
     	}
