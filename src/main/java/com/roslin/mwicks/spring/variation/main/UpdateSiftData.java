@@ -138,7 +138,7 @@ public class UpdateSiftData {
  
                             totalRecordCount = totalRecordCount +  siftdataList.size();
                             
-                			Wrapper.printMessage(StringUtility.pad(totalFileCount, 3, PAD_CHAR) + " : Directory : " + directory + " : " + file.getName() + " : records : " + StringUtility.pad(siftdataList.size(), 8, PAD_CHAR));
+                			Wrapper.printMessage(StringUtility.pad(totalFileCount, 3, PAD_CHAR) + " : Directory : " + directory + " : " + file.getName() + " : records : " + StringUtility.pad(siftdataList.size(), 8, PAD_CHAR), MSGLEVEL, MSGLEVEL);
 
                 	     	siftdataTotal = siftdataTotal + siftdataList.size();
                 	     	
