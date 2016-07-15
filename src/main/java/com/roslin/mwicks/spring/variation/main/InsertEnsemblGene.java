@@ -42,7 +42,6 @@ public class InsertEnsemblGene {
 
     @PersistenceContext
     private EntityManager entityManager;
-     
 
     public static void main(String args[]){  
 
