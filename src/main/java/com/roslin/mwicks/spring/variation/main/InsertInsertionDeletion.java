@@ -95,20 +95,20 @@ public class InsertInsertionDeletion {
 
                             List<SNPInsertionDeletion> snpinsertiondeletionList = ConvertFiletoInsertionDeletionList.run(file, totalRecordCount, MSGLEVEL, MSGLEVEL);
 
-                            List<SNPInsertionDeletion> snpinsertiondeletionListExpanded = ExpandFiletoInsertionDeletionList.run(snpinsertiondeletionList, MSGLEVEL, MSGLEVEL);
+                            //List<SNPInsertionDeletion> snpinsertiondeletionListExpanded = ExpandFiletoInsertionDeletionList.run(snpinsertiondeletionList, MSGLEVEL, MSGLEVEL);
 
                             ServiceSNPInsertionDeletion serviceSNPInsertionDeletion = (ServiceSNPInsertionDeletion) applicationContext.getBean(ServiceSNPInsertionDeletion.class);
                             
                             totalRecordCount = totalRecordCount +  snpinsertiondeletionList.size();
-                            totalRowCount = totalRowCount +  snpinsertiondeletionListExpanded.size();
-                            //totalRowCount = totalRowCount +  snpinsertiondeletionList.size();
+                            //totalRowCount = totalRowCount +  snpinsertiondeletionListExpanded.size();
+                            totalRowCount = totalRowCount +  snpinsertiondeletionList.size();
                             
                 			Wrapper.printMessage(StringUtility.pad(totalFileCount, 4, PAD_CHAR) + " : Directory : " + directory + " : " + file.getName() + " : records : " + StringUtility.pad(snpinsertiondeletionList.size(), 8, PAD_CHAR), MSGLEVEL, MSGLEVEL);
-                			Wrapper.printMessage(StringUtility.pad(totalFileCount, 4, PAD_CHAR) + " : Directory : " + directory + " : " + file.getName() + " : rows    : " + StringUtility.pad(snpinsertiondeletionListExpanded.size(), 8, PAD_CHAR), MSGLEVEL, MSGLEVEL);
-                			//Wrapper.printMessage(StringUtility.pad(totalFileCount, 4, PAD_CHAR) + " : Directory : " + directory + " : " + file.getName() + " : rows    : " + StringUtility.pad(snpinsertiondeletionList.size(), 8, PAD_CHAR), MSGLEVEL, MSGLEVEL);
+                			//Wrapper.printMessage(StringUtility.pad(totalFileCount, 4, PAD_CHAR) + " : Directory : " + directory + " : " + file.getName() + " : rows    : " + StringUtility.pad(snpinsertiondeletionListExpanded.size(), 8, PAD_CHAR), MSGLEVEL, MSGLEVEL);
+                			Wrapper.printMessage(StringUtility.pad(totalFileCount, 4, PAD_CHAR) + " : Directory : " + directory + " : " + file.getName() + " : rows    : " + StringUtility.pad(snpinsertiondeletionList.size(), 8, PAD_CHAR), MSGLEVEL, MSGLEVEL);
 
-                			serviceSNPInsertionDeletion.bulkSave(intBatchSize, snpinsertiondeletionListExpanded);
-                			//serviceSNPInsertionDeletion.bulkSave(intBatchSize, snpinsertiondeletionList);
+                			//serviceSNPInsertionDeletion.bulkSave(intBatchSize, snpinsertiondeletionListExpanded);
+                			serviceSNPInsertionDeletion.bulkSave(intBatchSize, snpinsertiondeletionList);
             			}
             		}
             		

@@ -72,7 +72,7 @@ public final class ConvertFiletoInsertionDeletionList {
 		        			dtoinsertiondeletion.setChromosomeId(column.trim());
 		        		}
 		        		if ( i == 2 ) {
-		        			dtoinsertiondeletion.setPosition(column.trim());
+		        			dtoinsertiondeletion.setPositionStart(column.trim());
 		        		}
 		        		if ( i == 3 ) {
 		        			dtoinsertiondeletion.setInDelId(column.trim());
@@ -112,6 +112,8 @@ public final class ConvertFiletoInsertionDeletionList {
 
         	    if ( !ignoreRow ) {
         	    	
+	         		dtoinsertiondeletion.setPositionEnd( Integer.toString( dtoinsertiondeletion.getPositionStartAsInteger() + dtoinsertiondeletion.getReference().length() - 1 ) );
+
     	         	if ( dtoinsertiondeletion.isThisAValidInsertionDeletion() ) {
     	         		
     	         		dtoinsertiondeletion.parseInformation();

@@ -49,7 +49,7 @@ public final class ExpandFiletoInsertionDeletionList {
 
 		     	//System.out.println("inputsnpinsertiondeletion.toString() : " + inputsnpinsertiondeletion.toString());
 
-	     		int start = inputsnpinsertiondeletion.getPosition();
+	     		int start = inputsnpinsertiondeletion.getPositionStart();
 	     		int stop = start + inputsnpinsertiondeletion.getReference().length() - 1;
 
 		     	//System.out.println("start : " + start);
@@ -66,7 +66,7 @@ public final class ExpandFiletoInsertionDeletionList {
 		            //snpinsertiondeletion.setOid( recordCount );
 
 	     			snpinsertiondeletion.setChromosomeId(inputsnpinsertiondeletion.getChromosomeId());
-	     			snpinsertiondeletion.setPosition(i);
+	     			snpinsertiondeletion.setPositionStart(i);
 	     			snpinsertiondeletion.setInsertionDeletionId(inputsnpinsertiondeletion.getInsertionDeletionId());
 	     			snpinsertiondeletion.setReference(inputsnpinsertiondeletion.getReference());
 	     			snpinsertiondeletion.setAlternative(inputsnpinsertiondeletion.getAlternative());
